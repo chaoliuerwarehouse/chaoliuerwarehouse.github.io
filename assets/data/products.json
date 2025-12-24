@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Kente Stitched Set (Men)",
+    "price": 350.00,
+    "currency": "GHS",
+    "category": "Traditional",
+    "sizes": ["S","M","L","XL"],
+    "stock": 24,
+    "sku": "KENTE-M-001",
+    "images": ["/assets/images/kente-men-1.jpg"],
+    "description": "Handwoven Kente stitched set — comfortable fit, vibrant patterns."
+  },
+  {
+    "id": 2,
+    "title": "Kente Wrap Dress (Women)",
+    "price": 280.00,
+    "currency": "GHS",
+    "category": "Traditional",
+    "sizes": ["XS","S","M","L"],
+    "stock": 18,
+    "sku": "KENTE-W-002",
+    "images": ["/assets/images/kente-women-1.jpg"],
+    "description": "Wrap dress inspired by traditional patterns — suitable for events and everyday wear."
+  },
+  {
+    "id": 3,
+    "title": "Batakari (Smock)",
+    "price": 220.00,
+    "currency": "GHS",
+    "category": "Traditional",
+    "sizes": ["M","L","XL"],
+    "stock": 12,
+    "sku": "BATAK-003",
+    "images": ["/assets/images/batakari-1.jpg"],
+    "description": "Classic Batakari smock — breathable fabric, authentic styling."
+  },
+  {
+    "id": 4,
+    "title": "African Print Shirt",
+    "price": 120.00,
+    "currency": "GHS",
+    "category": "Modern",
+    "sizes": ["S","M","L"],
+    "stock": 30,
+    "sku": "AP-SH-004",
+    "images": ["/assets/images/african-shirt-1.jpg"],
+    "description": "Comfortable African print shirt — casual and smart."
+  },
+  {
+    "id": 5,
+    "title": "Children Kente Set",
+    "price": 90.00,
+    "currency": "GHS",
+    "category": "Children",
+    "sizes": ["2Y","4Y","6Y","8Y"],
+    "stock": 20,
+    "sku": "KENTE-C-005",
+    "images": ["/assets/images/kids-kente-1.jpg"],
+    "description": "Adorable kente set for children — bright colours and comfortable fabrics."
+  },
+  {
+    "id": 6,
+    "title": "Accessories (Beads & Jewelry)",
+    "price": 40.00,
+    "currency": "GHS",
+    "category": "Accessories",
+    "sizes": [],
+    "stock": 50,
+    "sku": "ACC-006",
+    "images": ["/assets/images/accessories-1.jpg"],
+    "description": "Handmade beads and jewelry to complement traditional wear."
+  }
+]
