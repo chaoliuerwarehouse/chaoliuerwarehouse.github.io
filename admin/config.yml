@@ -1,5 +1,19 @@
 backend:
   name: git-gateway
   branch: main
+
 media_folder: "static/uploads"
 public_folder: "/uploads"
+
+collections:
+  - name: "products"
+    label: "产品"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "产品名称", name: "title", widget: "string"}
+      - {label: "价格", name: "price", widget: "string"}
+      - {label: "库存", name: "stock", widget: "number"}
+      - {label: "产品图片", name: "image", widget: "image"}
+      - {label: "产品描述", name: "body", widget: "markdown"}
