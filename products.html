@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Ghana Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Ghana Store</a>
+                <nav class="main-nav">
+                    <a href="index.html" data-translate="navHome">Home</a>
+                    <a href="about.html" data-translate="navAbout">About</a>
+                    <a href="business.html" data-translate="navBusiness">Business</a>
+                    <a href="products.html" data-translate="navProducts">Products</a>
+                    <a href="customization.html" data-translate="navCustomization">Customization</a>
+                    <a href="contact.html" data-translate="navContact">Contact</a>
+                    <a href="payment.html" data-translate="navPayment">Payment Guide</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="language-switcher">
+            <span class="language-label" data-translate="langLabel">Language:</span>
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="tw">TW</button>
+            <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+
+        <main class="main-content">
+            <h1 class="page-title" data-translate="productsTitle">Product Categories</h1>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="product1Title">New Clothing</h3>
+                    <p data-translate="product1Desc">Latest fashion items including dresses, shirts, trousers, and traditional wear.</p>
+                    <div style="margin-top: 0.8rem; color: var(--green); font-weight: bold;" data-translate="product1Price">From ₵50</div>
+                </div>
+                
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="product2Title">Pre-Owned Clothing</h3>
+                    <p data-translate="product2Desc">Quality second-hand items at affordable prices. Carefully selected for condition and style.</p>
+                    <div style="margin-top: 0.8rem; color: var(--green); font-weight: bold;" data-translate="product2Price">From ₵20</div>
+                </div>
+                
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="product3Title">Shoes & Footwear</h3>
+                    <p data-translate="product3Desc">New and pre-owned shoes for men, women, and children. Formal, casual, and sports.</p>
+                    <div style="margin-top: 0.8rem; color: var(--green); font-weight: bold;" data-translate="product3Price">From ₵40</div>
+                </div>
+                
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="product4Title">Bags & Accessories</h3>
+                    <p data-translate="product4Desc">Handbags, backpacks, wallets, hats, and jewelry items for all occasions.</p>
+                    <div style="margin-top: 0.8rem; color: var(--green); font-weight: bold;" data-translate="product4Price">From ₵30</div>
+                </div>
+                
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="product5Title">Daily Necessities</h3>
+                    <p data-translate="product5Desc">Household essentials, kitchenware, cleaning supplies, and personal care items.</p>
+                    <div style="margin-top: 0.8rem; color: var(--green); font-weight: bold;" data-translate="product5Price">From ₵10</div>
+                </div>
+                
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="product6Title">Small Appliances</h3>
+                    <p data-translate="product6Desc">Blenders, kettles, fans, irons, and other essential home appliances.</p>
+                    <div style="margin-top: 0.8rem; color: var(--green); font-weight: bold;" data-translate="product6Price">From ₵80</div>
+                </div>
+                
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="product7Title">Electronics</h3>
+                    <p data-translate="product7Desc">Mobile accessories, chargers, power banks, audio devices, and basic gadgets.</p>
+                    <div style="margin-top: 0.8rem; color: var(--green); font-weight: bold;" data-translate="product7Price">From ₵25</div>
+                </div>
+                
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="product8Title">Home & Living</h3>
+                    <p data-translate="product8Desc">Decorative items, storage solutions, textiles, and practical home goods.</p>
+                    <div style="margin-top: 0.8rem; color: var(--green); font-weight: bold;" data-translate="product8Price">From ₵15</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; padding: 1.2rem; background-color: #f0f8ff; border-radius: 6px;">
+                <h3 style="color: var(--green);" data-translate="availabilityNote">Product Availability Note</h3>
+                <p data-translate="availabilityText">Inventory varies by season and demand. Contact us directly to check availability of specific items or to request products not currently listed.</p>
+                <p style="margin-top: 0.5rem;"><a href="contact.html" class="submit-btn" style="display: inline-block; text-decoration: none; padding: 0.5rem 1rem;" data-translate="inquireBtn">Inquire About Products</a></p>
+            </div>
+        </main>
+        
+        <footer class="site-footer">
+            <p data-translate="footerRights">© 2023 Ghana Store. All rights reserved.</p>
+            <p data-translate="footerPayments">Accepted Payments: MTN Mobile Money | Vodafone Cash | Bank Transfer</p>
+        </footer>
+    </div>
+
+    <script src="translations.js"></script>
+</body>
+</html>

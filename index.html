@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana Store - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Ghana Store</a>
+                <nav class="main-nav">
+                    <a href="index.html" data-translate="navHome">Home</a>
+                    <a href="about.html" data-translate="navAbout">About</a>
+                    <a href="business.html" data-translate="navBusiness">Business</a>
+                    <a href="products.html" data-translate="navProducts">Products</a>
+                    <a href="customization.html" data-translate="navCustomization">Customization</a>
+                    <a href="contact.html" data-translate="navContact">Contact</a>
+                    <a href="payment.html" data-translate="navPayment">Payment Guide</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="language-switcher">
+            <span class="language-label" data-translate="langLabel">Language:</span>
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="tw">TW</button>
+            <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+
+        <main class="main-content">
+            <h1 class="page-title" data-translate="homeTitle">Welcome to Ghana Store</h1>
+            
+            <p data-translate="homeDesc">Your premier destination for quality retail and wholesale goods in Ghana. We specialize in a wide range of products from clothing and accessories to electronics and custom-made items.</p>
+            
+            <div style="margin: 2rem 0; padding: 1.5rem; background: linear-gradient(90deg, #CE112611, #FCD11611, #006B3F11); border-radius: 8px;">
+                <h2 style="color: var(--green); margin-bottom: 1rem;" data-translate="homeWhyChoose">Why Choose Us?</h2>
+                <ul style="list-style-position: inside;">
+                    <li data-translate="homeWhy1">Wide range of new and pre-owned quality items</li>
+                    <li data-translate="homeWhy2">Professional customization services</li>
+                    <li data-translate="homeWhy3">Competitive wholesale pricing</li>
+                    <li data-translate="homeWhy4">Secure local payment options (MTN, Vodafone Cash, Bank Transfer)</li>
+                    <li data-translate="homeWhy5">Reliable customer support</li>
+                </ul>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="homeNewArrivals">New Arrivals</h3>
+                    <p data-translate="homeNewDesc">Discover our latest collection of clothing, shoes, and accessories.</p>
+                </div>
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="homeNecessities">Daily Necessities</h3>
+                    <p data-translate="homeNecDesc">Essential household items and small appliances for everyday life.</p>
+                </div>
+                <div class="product-card">
+                    <h3 style="color: var(--red);" data-translate="homeCustom">Custom Orders</h3>
+                    <p data-translate="homeCustomDesc">Personalized clothing, bags, and furniture tailored to your needs.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="products.html" class="submit-btn" style="display: inline-block; text-decoration: none;" data-translate="browseBtn">Browse All Products</a>
+            </div>
+        </main>
+        
+        <footer class="site-footer">
+            <p data-translate="footerRights">© 2023 Ghana Store. All rights reserved.</p>
+            <p data-translate="footerPayments">Accepted Payments: MTN Mobile Money | Vodafone Cash | Bank Transfer</p>
+        </footer>
+    </div>
+
+    <!-- 引入语言系统 -->
+    <script src="translations.js"></script>
+</body>
+</html>

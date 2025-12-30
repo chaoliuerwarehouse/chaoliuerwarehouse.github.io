@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Ghana Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Ghana Store</a>
+                <nav class="main-nav">
+                    <a href="index.html" data-translate="navHome">Home</a>
+                    <a href="about.html" data-translate="navAbout">About</a>
+                    <a href="business.html" data-translate="navBusiness">Business</a>
+                    <a href="products.html" data-translate="navProducts">Products</a>
+                    <a href="customization.html" data-translate="navCustomization">Customization</a>
+                    <a href="contact.html" data-translate="navContact">Contact</a>
+                    <a href="payment.html" data-translate="navPayment">Payment Guide</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="language-switcher">
+            <span class="language-label" data-translate="langLabel">Language:</span>
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="tw">TW</button>
+            <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+
+        <main class="main-content">
+            <h1 class="page-title" data-translate="contactTitle">Contact Ghana Store</h1>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                <div>
+                    <h2 style="color: var(--green); margin-bottom: 1rem;" data-translate="getInTouch">Get In Touch</h2>
+                    <p data-translate="contactDesc">We're here to assist you with product inquiries, customization requests, wholesale orders, or any other questions.</p>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <h3 style="color: var(--red);" data-translate="contactInfo">Contact Information</h3>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong data-translate="phoneLabel">Phone:</strong> +233 123 456 789
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong data-translate="whatsappLabel">WhatsApp:</strong> +233 123 456 789
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong data-translate="emailLabel">Email:</strong> info@ghanastore.com
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong data-translate="hoursLabel">Business Hours:</strong><br>
+                                <span data-translate="hoursMonFri">Monday-Friday: 8:00 AM - 6:00 PM</span><br>
+                                <span data-translate="hoursSat">Saturday: 9:00 AM - 4:00 PM</span><br>
+                                <span data-translate="hoursSun">Sunday: Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 style="color: var(--green); margin-bottom: 1rem;" data-translate="sendMessage">Send Us a Message</h2>
+                    <form class="contact-form">
+                        <div>
+                            <label for="name" style="display: block; margin-bottom: 0.3rem;" data-translate="nameLabel">Your Name *</label>
+                            <input type="text" id="name" required style="width: 100%;">
+                        </div>
+                        
+                        <div>
+                            <label for="email" style="display: block; margin-bottom: 0.3rem;" data-translate="emailInputLabel">Email Address *</label>
+                            <input type="email" id="email" required style="width: 100%;">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" style="display: block; margin-bottom: 0.3rem;" data-translate="phoneInputLabel">Phone Number</label>
+                            <input type="tel" id="phone" style="width: 100%;">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" style="display: block; margin-bottom: 0.3rem;" data-translate="subjectLabel">Subject *</label>
+                            <select id="subject" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                                <option value="" data-translate="subjectOption1">Select a topic</option>
+                                <option value="product" data-translate="subjectOption2">Product Inquiry</option>
+                                <option value="custom" data-translate="subjectOption3">Customization Request</option>
+                                <option value="wholesale" data-translate="subjectOption4">Wholesale/Bulk Order</option>
+                                <option value="payment" data-translate="subjectOption5">Payment Question</option>
+                                <option value="other" data-translate="subjectOption6">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" style="display: block; margin-bottom: 0.3rem;" data-translate="messageLabel">Your Message *</label>
+                            <textarea id="message" rows="5" required style="width: 100%;"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" data-translate="sendBtn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; padding: 1.5rem; background-color: #f0f8ff; border-radius: 6px;">
+                <h2 style="color: var(--green);" data-translate="quickResponse">Quick Response Guarantee</h2>
+                <p data-translate="responseText">We strive to respond to all inquiries within 24 hours during business days. For urgent matters, please call or WhatsApp us directly.</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <div style="flex: 1; min-width: 200px; padding: 1rem; background-color: white; border-radius: 6px;">
+                        <h4 style="color: var(--red); margin-bottom: 0.5rem;" data-translate="salesInquiries">Sales Inquiries</h4>
+                        <p data-translate="salesEmail">For product questions and orders: sales@ghanastore.com</p>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 200px; padding: 1rem; background-color: white; border-radius: 6px;">
+                        <h4 style="color: var(--red); margin-bottom: 0.5rem;" data-translate="customizationEmail">Customization</h4>
+                        <p data-translate="customEmail">For custom projects: custom@ghanastore.com</p>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 200px; padding: 1rem; background-color: white; border-radius: 6px;">
+                        <h4 style="color: var(--red); margin-bottom: 0.5rem;" data-translate="wholesaleEmail">Wholesale</h4>
+                        <p data-translate="wholesaleContactEmail">For business/volume orders: wholesale@ghanastore.com</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="site-footer">
+            <p data-translate="footerRights">© 2023 Ghana Store. All rights reserved.</p>
+            <p data-translate="footerPayments">Accepted Payments: MTN Mobile Money | Vodafone Cash | Bank Transfer</p>
+        </footer>
+    </div>
+
+    <script src="translations.js"></script>
+</body>
+</html>
