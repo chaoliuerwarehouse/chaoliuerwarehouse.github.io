@@ -3,79 +3,3510 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghana Store - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Chaoliuer Store - Home</title>
+    <style>
+        /* style.css - Chaoliuer Store 完整样式 */
+        :root {
+            --red: #CE1126;    /* 加纳红 */
+            --gold: #FCD116;   /* 加纳金 */
+            --green: #006B3F;  /* 加纳绿 */
+            --black: #000000;  /* 黑 */
+            --light-gray: #f8f9fa;
+            --gray: #6c757d;
+            --white: #ffffff;
+            --dark-color: #212529;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light-gray);
+            color: #333;
+            line-height: 1.8;
+            font-size: 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+            flex: 1;
+        }
+        /* 优化后的头部与导航 - 增加字体大小并优化布局 */
+        .site-header {
+            background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
+            padding: 0.6rem 0;
+            border-bottom: 5px solid var(--black);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+            min-height: 60px;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+            text-shadow: 1px 1px 2px var(--black);
+            line-height: 1.2;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-right: 2rem;
+        }
+        .main-nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex: 1;
+            justify-content: flex-start;
+            padding: 0.5rem 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        .main-nav::-webkit-scrollbar {
+            height: 3px;
+        }
+        .main-nav::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+        .main-nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 0.6rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            white-space: nowrap;
+            flex-shrink: 0;
+            display: inline-block;
+            letter-spacing: 0.3px;
+        }
+        .main-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .cart-icon {
+            position: relative;
+            margin-left: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            padding: 8px 12px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            min-width: 45px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+        .cart-icon:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--red);
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            line-height: 1;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        /* 搜索栏 */
+        .search-container {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+        }
+        .search-input {
+            flex: 1;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid var(--green);
+            border-radius: 6px 0 0 6px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .search-btn {
+            background-color: var(--green);
+            color: white;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+        .search-btn:hover {
+            background-color: #00532c;
+        }
+        /* 内容区域 */
+        .main-content {
+            background-color: var(--white);
+            padding: 2.5rem;
+            margin: 1.8rem 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            line-height: 1.7;
+        }
+        .page-title {
+            color: var(--green);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.8rem;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            line-height: 1.3;
+        }
+        /* 产品网格 */
+        .product-grid, .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.8rem;
+            margin: 1.8rem 0;
+        }
+        .product-card, .category-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: var(--white);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 380px;
+            line-height: 1.6;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-color: var(--gold);
+        }
+        .category-card h3 {
+            color: var(--red);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* 产品详情卡片 */
+        .product-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: var(--white);
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 1.5rem;
+            line-height: 1.6;
+        }
+        .product-title {
+            color: var(--green);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+        .product-price {
+            color: var(--red);
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin: 0.8rem 0;
+            line-height: 1.4;
+        }
+        .product-stock {
+            color: var(--gray);
+            font-size: 1rem;
+            margin: 0.8rem 0;
+            line-height: 1.5;
+        }
+        .stock-in {
+            color: var(--green);
+            font-weight: bold;
+        }
+        .stock-low {
+            color: var(--gold);
+            font-weight: bold;
+        }
+        .stock-out {
+            color: var(--red);
+            font-weight: bold;
+        }
+        /* 按钮 */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+        .btn-primary {
+            background-color: var(--green);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #00532c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .btn-secondary {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+        .btn-secondary:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        }
+        .btn-danger {
+            background-color: var(--red);
+            color: white;
+        }
+        .btn-danger:hover {
+            background-color: #a80d1e;
+            transform: translateY(-2px);
+        }
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        /* 购物车页面 */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+            line-height: 1.6;
+        }
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-right: 1.5rem;
+        }
+        .cart-item-details {
+            flex: 1;
+            min-width: 250px;
+            line-height: 1.6;
+        }
+        .cart-item-title {
+            color: var(--green);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .cart-item-price {
+            color: var(--red);
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+        .cart-item-specs {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin: 0.5rem 0;
+        }
+        .cart-quantity {
+            display: flex;
+            align-items: center;
+            margin: 0 1.5rem;
+        }
+        .quantity-btn {
+            background-color: #f0f0f0;
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+            line-height: 1;
+        }
+        .quantity-btn:hover {
+            background-color: #ddd;
+        }
+        .quantity-input {
+            width: 55px;
+            text-align: center;
+            margin: 0 12px;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+        .cart-total {
+            text-align: right;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--green);
+            margin: 2.5rem 0;
+            line-height: 1.3;
+        }
+        /* 页脚 */
+        .site-footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 2rem 0;
+            border-top: 1px solid #eee;
+            color: var(--gray);
+            background-color: var(--white);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        /* 所有产品页面特定样式 */
+        .products-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 35px;
+            margin-top: 2.5rem;
+        }
+        /* 筛选侧边栏 */
+        .filters-sidebar {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+            line-height: 1.6;
+        }
+        .filters-sidebar h3 {
+            color: var(--green);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #eee;
+            line-height: 1.4;
+        }
+        /* 新增：筛选状态指示器 */
+        .filter-status {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 6px;
+            border-left: 4px solid var(--green);
+        }
+        .filter-status h4 {
+            color: var(--green);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .active-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .active-filter-tag {
+            background-color: var(--green);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        .active-filter-tag .remove-filter {
+            margin-left: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1;
+        }
+        .clear-all-filters {
+            margin-top: 10px;
+            color: var(--red);
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .filter-group {
+            margin-bottom: 30px;
+        }
+        .filter-group h4 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .filter-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 6px 0;
+            line-height: 1.5;
+        }
+        .filter-option input {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .filter-option span {
+            color: #333;
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+        .price-slider {
+            width: 100%;
+            margin: 12px 0;
+            cursor: pointer;
+        }
+        .price-range {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+        .current-price {
+            margin-top: 12px;
+            font-weight: bold;
+            color: var(--green);
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        /* 新增：筛选确认按钮 */
+        .filter-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .filter-actions .btn {
+            width: 100%;
+        }
+        .filter-actions .btn-primary {
+            background-color: var(--green);
+        }
+        .filter-actions .btn-secondary {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        /* 产品网格区域 */
+        .products-main {
+            flex: 1;
+        }
+        .sort-options {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 25px;
+        }
+        #sortSelect {
+            padding: 12px 18px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: white;
+            color: #333;
+            font-size: 1.05rem;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+        /* 产品网格 */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .products-item {
+            background-color: var(--white);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+        .products-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+        .products-image {
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.6rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            background-size: cover;
+            background-position: center;
+        }
+        .products-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--white);
+            color: var(--black);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            z-index: 1;
+            line-height: 1.3;
+        }
+        .products-image-text {
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 0 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            background-color: rgba(0,0,0,0.3);
+            padding: 10px 18px;
+            border-radius: 4px;
+            line-height: 1.4;
+        }
+        .products-info {
+            padding: 25px;
+        }
+        .products-category {
+            color: var(--green);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .products-title {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            min-height: 3rem;
+            line-height: 1.4;
+        }
+        .products-description {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 18px;
+            line-height: 1.6;
+            min-height: 4.8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        .products-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        .products-price {
+            color: var(--red);
+            font-weight: bold;
+            font-size: 1.6rem;
+            line-height: 1.3;
+        }
+        .products-stock {
+            text-align: right;
+        }
+        .stock-count {
+            color: var(--gray);
+            font-size: 1rem;
+            display: block;
+            margin-top: 3px;
+            line-height: 1.5;
+        }
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 70px 20px;
+            grid-column: 1 / -1;
+            line-height: 1.7;
+        }
+        .empty-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            opacity: 0.5;
+        }
+        .empty-state h3 {
+            color: #666;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+            line-height: 1.4;
+        }
+        .empty-state p {
+            color: #999;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        /* 分类页面样式 */
+        .category-image {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 1.5rem;
+        }
+        .category-label {
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            text-align: center;
+            padding: 0 10px;
+            line-height: 1.4;
+        }
+        .category-content {
+            padding: 0;
+            line-height: 1.6;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .category-content h3 {
+            color: var(--red);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            min-height: 3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .category-content p {
+            color: var(--gray);
+            margin-bottom: 18px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            flex: 1;
+        }
+        .view-link {
+            color: var(--green);
+            font-weight: bold;
+            margin-top: auto;
+            padding-top: 1rem;
+            display: inline-block;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        .availability-note {
+            margin-top: 2.5rem;
+            padding: 1.8rem;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+        .availability-note h3 {
+            color: var(--green);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+        /* 产品详情页面样式 - 修复图片显示问题 */
+        .product-detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            margin-top: 2.5rem;
+            align-items: start; /* 确保顶部对齐 */
+        }
+        .product-detail-image-container {
+            width: 100%;
+            height: 400px; /* 固定高度 */
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-detail-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 确保完整显示图片 */
+            display: block;
+        }
+        .product-detail-info {
+            padding: 0;
+            line-height: 1.7;
+        }
+        .product-detail-title {
+            color: var(--green);
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+        }
+        .product-detail-price {
+            color: var(--red);
+            font-weight: bold;
+            font-size: 2.4rem;
+            margin: 1.2rem 0;
+            line-height: 1.3;
+        }
+        .product-detail-category {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+        .product-detail-description {
+            margin: 2.5rem 0;
+            line-height: 1.8;
+            font-size: 1.15rem;
+        }
+        .product-detail-specs {
+            margin: 2.5rem 0;
+            padding: 1.8rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+        .product-detail-specs h3 {
+            color: var(--green);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #eee;
+            line-height: 1.5;
+        }
+        .spec-name {
+            color: #666;
+            font-size: 1.05rem;
+        }
+        .spec-value {
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+        .product-actions {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 1.2rem;
+            color: var(--green);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
+        /* 安全支付提示 */
+        .security-tips {
+            margin: 2.5rem 0;
+            padding: 1.8rem;
+            background-color: #fff8e1;
+            border-radius: 8px;
+            border-left: 5px solid var(--gold);
+        }
+        .security-tips h3 {
+            color: var(--red);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+        }
+        .security-tips ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .security-tips li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        .security-tips li:before {
+            content: "✓";
+            color: var(--green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        /* 主题选项按钮 */
+        .topic-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+        .topic-btn {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        .topic-btn.active {
+            background-color: var(--green);
+            color: white;
+        }
+        .topic-btn:hover {
+            background-color: #ddd;
+        }
+        /* WhatsApp浮动按钮 */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        .whatsapp-float i {
+            margin-top: 5px;
+        }
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+        
+        /* 新增：通用文本样式优化 */
+        p, li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--green);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 新增：联系人卡片样式 */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+        .contact-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-card h3 {
+            color: var(--green);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            color: var(--green);
+        }
+        .contact-card p {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            white-space: nowrap;
+        }
+        
+        /* 新增：支付卡片样式 - 更新边框颜色 */
+        .payment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+        .payment-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 2rem;
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .payment-card.mtn {
+            border-left: 5px solid #FFCC00; /* MTN黄色 */
+        }
+        .payment-card.vodafone {
+            border-left: 5px solid #E60000; /* Vodafone红色 */
+        }
+        .payment-card.bank {
+            border-left: 5px solid var(--green); /* 银行绿色 */
+        }
+        .payment-card h3 {
+            color: var(--green);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            min-height: 3rem;
+        }
+        .payment-card ol, .payment-card ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .payment-card li {
+            margin-bottom: 0.8rem;
+        }
+        .payment-card .note {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed #ddd;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+        
+        /* 新增：表单样式 */
+        .contact-form {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .contact-form h3 {
+            color: var(--green);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1.05rem;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* 新增：折叠复选框组样式 - 更新为移动设备友好 */
+        .collapsible-checkbox-group {
+            margin-bottom: 1.5rem;
+        }
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .collapsible-header:hover {
+            background-color: #e9e9e9;
+        }
+        .collapsible-header h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .collapsible-icon {
+            transition: transform 0.3s;
+        }
+        .collapsible-icon.expanded {
+            transform: rotate(180deg);
+        }
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #fff;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            border-radius: 0 0 4px 4px;
+        }
+        .collapsible-content.expanded {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .checkbox-options {
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .checkbox-option:hover {
+            background-color: #f0f0f0;
+        }
+        .checkbox-option input {
+            margin-right: 0.8rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .checkbox-option span {
+            font-size: 1rem;
+            color: #333;
+            cursor: pointer;
+        }
+        .selected-topics {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background-color: #f0f8ff;
+            border-radius: 4px;
+            border-left: 3px solid var(--green);
+        }
+        .selected-topics h5 {
+            margin: 0 0 0.5rem 0;
+            color: var(--green);
+            font-size: 1rem;
+        }
+        .selected-topics-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .topic-tag {
+            background-color: var(--green);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        .topic-tag .remove-topic {
+            margin-left: 0.5rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+        
+        /* 额外小屏幕优化 */
+        @media (max-width: 400px) {
+            .main-nav a {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .products-layout {
+                grid-template-columns: 280px 1fr;
+            }
+            .logo {
+                font-size: 1.8rem;
+            }
+            .main-nav a {
+                font-size: 1rem;
+                padding: 7px 12px;
+                margin: 0 0.5rem;
+            }
+        }
+        @media (max-width: 1024px) {
+            .products-layout, .product-detail-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters-sidebar {
+                position: static;
+                margin-bottom: 25px;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                margin-right: 1rem;
+                margin-bottom: 0.5rem;
+                font-size: 1.8rem;
+            }
+            
+            .main-nav {
+                order: 3;
+                width: 100%;
+                margin-top: 0.5rem;
+                justify-content: center;
+                padding-top: 0.5rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            
+            .search-container {
+                order: 2;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+            
+            .cart-icon {
+                order: 1;
+                margin-left: auto;
+                margin-bottom: 0.5rem;
+            }
+        }
+        @media (max-width: 900px) {
+            .main-nav a {
+                font-size: 0.95rem;
+                padding: 6px 10px;
+                margin: 0 0.3rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                min-height: auto;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+                font-size: 1.8rem;
+            }
+            
+            .main-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 0.5rem;
+                overflow-x: visible;
+            }
+            
+            .main-nav a {
+                font-size: 0.95rem;
+                padding: 8px 12px;
+                margin: 2px 3px;
+            }
+            
+            .cart-icon {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                order: 2;
+            }
+            
+            .search-container {
+                order: 3;
+                margin-top: 0.8rem;
+            }
+            
+            .product-grid, .category-grid, .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .cart-item-image {
+                width: 100%;
+                height: 200px;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            
+            .cart-quantity {
+                margin: 1.5rem 0;
+            }
+            
+            .site-footer {
+                padding: 1.5rem 0;
+            }
+            .product-detail-image-container {
+                height: 300px;
+            }
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-actions {
+                flex-direction: column;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+            body {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+            .main-content {
+                padding: 1.8rem;
+            }
+            
+            /* 移动设备上的折叠复选框组优化 */
+            .checkbox-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .collapsible-content.expanded {
+                max-height: 400px;
+            }
+        }
+        @media (max-width: 576px) {
+            .product-grid, .category-grid, .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-image {
+                height: 180px;
+            }
+            
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 0 10px;
+            }
+            .product-detail-image-container {
+                height: 250px;
+            }
+            body {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+            .topic-buttons {
+                flex-direction: column;
+            }
+            .topic-btn {
+                width: 100%;
+            }
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            .main-nav a {
+                font-size: 0.85rem;
+                padding: 6px 10px;
+                margin: 1px 2px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- WhatsApp浮动按钮 -->
+    <a href="https://wa.me/233209412194" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-tooltip">Chat with us on WhatsApp: +233 20 941 2194</div>
+    </a>
     <header class="site-header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">Ghana Store</a>
+                <a href="javascript:void(0)" class="logo" onclick="loadPage('home')">Chaoliuer Store</a>
                 <nav class="main-nav">
-                    <a href="index.html" data-translate="navHome">Home</a>
-                    <a href="about.html" data-translate="navAbout">About</a>
-                    <a href="business.html" data-translate="navBusiness">Business</a>
-                    <a href="products.html" data-translate="navProducts">Products</a>
-                    <a href="customization.html" data-translate="navCustomization">Customization</a>
-                    <a href="contact.html" data-translate="navContact">Contact</a>
-                    <a href="payment.html" data-translate="navPayment">Payment Guide</a>
+                    <a href="javascript:void(0)" onclick="loadPage('home')">Home</a>
+                    <a href="javascript:void(0)" onclick="loadPage('about')">About</a>
+                    <a href="javascript:void(0)" onclick="loadPage('business')">Business</a>
+                    <a href="javascript:void(0)" onclick="loadPage('products')">Products</a>
+                    <a href="javascript:void(0)" onclick="loadPage('all-products')">All Products</a>
+                    <a href="javascript:void(0)" onclick="loadPage('customization')">Custom</a>
+                    <a href="javascript:void(0)" onclick="loadPage('contact')">Contact</a>
+                    <a href="javascript:void(0)" onclick="loadPage('payment')">Payment</a>
+                    <a href="javascript:void(0)" onclick="loadPage('cart')" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
                 </nav>
             </div>
         </div>
     </header>
-
     <div class="container">
-        <div class="language-switcher">
-            <span class="language-label" data-translate="langLabel">Language:</span>
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="fr">FR</button>
-            <button class="lang-btn" data-lang="tw">TW</button>
-            <button class="lang-btn" data-lang="zh">中文</button>
+        <!-- 搜索栏 -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                <button class="search-btn" onclick="searchProducts()">Search</button>
+            </div>
         </div>
-
-        <main class="main-content">
-            <h1 class="page-title" data-translate="homeTitle">Welcome to Ghana Store</h1>
-            
-            <p data-translate="homeDesc">Your premier destination for quality retail and wholesale goods in Ghana. We specialize in a wide range of products from clothing and accessories to electronics and custom-made items.</p>
-            
-            <div style="margin: 2rem 0; padding: 1.5rem; background: linear-gradient(90deg, #CE112611, #FCD11611, #006B3F11); border-radius: 8px;">
-                <h2 style="color: var(--green); margin-bottom: 1rem;" data-translate="homeWhyChoose">Why Choose Us?</h2>
-                <ul style="list-style-position: inside;">
-                    <li data-translate="homeWhy1">Wide range of new and pre-owned quality items</li>
-                    <li data-translate="homeWhy2">Professional customization services</li>
-                    <li data-translate="homeWhy3">Competitive wholesale pricing</li>
-                    <li data-translate="homeWhy4">Secure local payment options (MTN, Vodafone Cash, Bank Transfer)</li>
-                    <li data-translate="homeWhy5">Reliable customer support</li>
-                </ul>
-            </div>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <h3 style="color: var(--red);" data-translate="homeNewArrivals">New Arrivals</h3>
-                    <p data-translate="homeNewDesc">Discover our latest collection of clothing, shoes, and accessories.</p>
-                </div>
-                <div class="product-card">
-                    <h3 style="color: var(--red);" data-translate="homeNecessities">Daily Necessities</h3>
-                    <p data-translate="homeNecDesc">Essential household items and small appliances for everyday life.</p>
-                </div>
-                <div class="product-card">
-                    <h3 style="color: var(--red);" data-translate="homeCustom">Custom Orders</h3>
-                    <p data-translate="homeCustomDesc">Personalized clothing, bags, and furniture tailored to your needs.</p>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="products.html" class="submit-btn" style="display: inline-block; text-decoration: none;" data-translate="browseBtn">Browse All Products</a>
-            </div>
-        </main>
-        
-        <footer class="site-footer">
-            <p data-translate="footerRights">© 2023 Ghana Store. All rights reserved.</p>
-            <p data-translate="footerPayments">Accepted Payments: MTN Mobile Money | Vodafone Cash | Bank Transfer</p>
-        </footer>
+        <!-- 动态内容区域 -->
+        <div id="page-content"></div>
     </div>
-
-    <!-- 引入语言系统 -->
-    <script src="translations.js"></script>
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2023 Chaoliuer Store. All rights reserved.</p>
+            <p>Accepted Payments: MTN Mobile Money | Vodafone Cash | Bank Transfer</p>
+            <p>Contact: WhatsApp/Phone: +233 20 941 2194 | WeChat: +86 186 2031 0341 | Email: shiyumarry@gmail.com</p>
+        </div>
+    </footer>
+    <script>
+        // 购物车数据
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // 当前语言设置
+        let currentLanguage = 'en';
+        
+        // 扩展的产品数据，包含更多详细信息和新类别
+        const allProducts = [
+            {
+                id: 1,
+                name: "African Print Dress",
+                category: "new-clothing",
+                price: 150,
+                stock: 10,
+                condition: "new",
+                description: "Beautiful traditional African print dress for all occasions. Made from high-quality Ankara fabric with intricate patterns and comfortable fit.",
+                detailedDescription: "This stunning African print dress features vibrant colors and traditional patterns that celebrate Ghanaian culture. Made from 100% cotton Ankara fabric, it's breathable and comfortable for all-day wear. Perfect for weddings, festivals, or special occasions. The dress includes a matching headwrap and can be customized in different sizes.",
+                specs: {
+                    "Material": "100% Cotton Ankara",
+                    "Size": "M, L, XL",
+                    "Color": "Multi-color",
+                    "Care": "Hand wash, line dry",
+                    "Origin": "Made in Ghana",
+                    "Weight": "0.8kg"
+                },
+                imageColor: "#CE1126",
+                imageText: "DRESS",
+                imageUrl: "images/1.jpg"
+            },
+            {
+                id: 2,
+                name: "Men's Traditional Shirt",
+                category: "new-clothing",
+                price: 80,
+                stock: 15,
+                condition: "new",
+                description: "Comfortable and stylish traditional shirt for men. Perfect for cultural events, weddings, or everyday wear.",
+                detailedDescription: "Elegant traditional shirt made from premium fabric with intricate embroidery. Perfect for cultural events, weddings, or everyday wear. Features a comfortable fit and traditional design elements.",
+                specs: {
+                    "Material": "Cotton blend",
+                    "Size": "S, M, L, XL",
+                    "Color": "White with embroidery",
+                    "Care": "Machine washable",
+                    "Origin": "Made in Ghana",
+                    "Weight": "0.5kg"
+                },
+                imageColor: "#FCD116",
+                imageText: "SHIRT",
+                imageUrl: "images/2.jpg"
+            },
+            {
+                id: 3,
+                name: "Women's Blouse",
+                category: "new-clothing",
+                price: 65,
+                stock: 20,
+                condition: "new",
+                description: "Elegant blouse for office or casual wear. Versatile design that transitions seamlessly from office to casual settings.",
+                detailedDescription: "Versatile women's blouse that transitions seamlessly from office to casual settings. Made from breathable fabric with a modern cut and traditional accents.",
+                specs: {
+                    "Material": "Polyester-cotton blend",
+                    "Size": "XS, S, M, L",
+                    "Color": "Various colors available",
+                    "Care": "Machine wash cold",
+                    "Origin": "Made in Ghana",
+                    "Weight": "0.4kg"
+                },
+                imageColor: "#006B3F",
+                imageText: "BLOUSE",
+                imageUrl: "https://picsum.photos/id/21/800/600"
+            },
+            {
+                id: 4,
+                name: "Children's Traditional Wear",
+                category: "new-clothing",
+                price: 45,
+                stock: 25,
+                condition: "new",
+                description: "Colorful traditional outfits for children. Perfect for cultural celebrations, weddings, or family events.",
+                detailedDescription: "Adorable traditional outfits for children, perfect for cultural celebrations, weddings, or family events. Made from soft, child-friendly fabrics with vibrant prints.",
+                specs: {
+                    "Material": "Soft cotton",
+                    "Size": "2-4 years, 5-7 years, 8-10 years",
+                    "Color": "Bright traditional patterns",
+                    "Care": "Machine wash gentle",
+                    "Origin": "Made in Ghana",
+                    "Weight": "0.3kg"
+                },
+                imageColor: "#CE1126",
+                imageText: "KIDS",
+                imageUrl: "https://picsum.photos/id/1025/800/600"
+            },
+            {
+                id: 5,
+                name: "Used Jeans",
+                category: "used-clothing",
+                price: 40,
+                stock: 8,
+                condition: "used",
+                description: "Good condition used jeans in various sizes. Quality pre-owned jeans, inspected and cleaned.",
+                detailedDescription: "Quality pre-owned jeans in good condition. Each pair is inspected, cleaned, and ready to wear. Great value for everyday casual wear.",
+                specs: {
+                    "Material": "Denim",
+                    "Size": "Various sizes available",
+                    "Condition": "Good - minor wear",
+                    "Color": "Blue, Black",
+                    "Care": "Machine wash",
+                    "Weight": "0.6kg"
+                },
+                imageColor: "#1E90FF",
+                imageText: "JEANS",
+                imageUrl: "https://picsum.photos/id/21/800/600"
+            },
+            {
+                id: 6,
+                name: "Used T-Shirts",
+                category: "used-clothing",
+                price: 25,
+                stock: 20,
+                condition: "used",
+                description: "Comfortable used t-shirts in various styles and colors. Great value for casual wear.",
+                detailedDescription: "Collection of pre-owned t-shirts in good condition. Various styles, colors and sizes available. Perfect for everyday casual wear.",
+                specs: {
+                    "Material": "Cotton",
+                    "Size": "S, M, L, XL",
+                    "Condition": "Good condition",
+                    "Color": "Various colors",
+                    "Care": "Machine wash",
+                    "Weight": "0.2kg"
+                },
+                imageColor: "#FCD116",
+                imageText: "T-SHIRTS",
+                imageUrl: "https://picsum.photos/id/1082/800/600"
+            },
+            {
+                id: 7,
+                name: "Leather Shoes",
+                category: "new-shoes",
+                price: 120,
+                stock: 12,
+                condition: "new",
+                description: "High-quality leather shoes for formal occasions. Handcrafted by local artisans.",
+                detailedDescription: "Premium leather shoes handcrafted by local artisans. These shoes combine traditional Ghanaian craftsmanship with modern comfort features. Perfect for formal events, weddings, or office wear.",
+                specs: {
+                    "Material": "Genuine leather",
+                    "Size": "UK 6-12",
+                    "Color": "Black, Brown",
+                    "Care": "Use leather conditioner",
+                    "Origin": "Handmade in Ghana",
+                    "Weight": "1.2kg"
+                },
+                imageColor: "#8B4513",
+                imageText: "LEATHER",
+                imageUrl: "https://picsum.photos/id/103/800/600"
+            },
+            {
+                id: 8,
+                name: "Sports Sneakers",
+                category: "new-shoes",
+                price: 90,
+                stock: 18,
+                condition: "new",
+                description: "Comfortable sports sneakers for active lifestyle. High-performance with cushioned soles.",
+                detailedDescription: "High-performance sports sneakers with cushioned soles and breathable mesh uppers. Designed for comfort during workouts, running, or casual wear.",
+                specs: {
+                    "Material": "Mesh and synthetic",
+                    "Size": "UK 5-11",
+                    "Color": "White, Black, Blue",
+                    "Care": "Wipe clean with damp cloth",
+                    "Origin": "Imported",
+                    "Weight": "0.8kg"
+                },
+                imageColor: "#1E90FF",
+                imageText: "SNEAKERS",
+                imageUrl: "https://picsum.photos/id/1060/800/600"
+            },
+            {
+                id: 9,
+                name: "Traditional Sandals",
+                category: "new-shoes",
+                price: 50,
+                stock: 22,
+                condition: "new",
+                description: "Traditional African sandals with leather straps. Handcrafted from genuine leather.",
+                detailedDescription: "Handcrafted traditional sandals made from genuine leather with comfortable footbed. Perfect for warm weather and cultural events.",
+                specs: {
+                    "Material": "Genuine leather",
+                    "Size": "S, M, L (adjustable)",
+                    "Color": "Brown, Black",
+                    "Care": "Clean with leather conditioner",
+                    "Origin": "Handmade in Ghana",
+                    "Weight": "0.5kg"
+                },
+                imageColor: "#8B4513",
+                imageText: "SANDALS",
+                imageUrl: "https://picsum.photos/id/1062/800/600"
+            },
+            {
+                id: 10,
+                name: "Used Running Shoes",
+                category: "used-shoes",
+                price: 35,
+                stock: 15,
+                condition: "used",
+                description: "Good condition used running shoes. Comfortable and still have plenty of life.",
+                detailedDescription: "Pre-owned running shoes in good condition. Great for everyday use, workouts, or casual wear. All shoes are cleaned and inspected.",
+                specs: {
+                    "Material": "Mesh and synthetic",
+                    "Size": "UK 6-11",
+                    "Condition": "Good - moderate wear",
+                    "Color": "Various",
+                    "Care": "Wipe clean",
+                    "Weight": "0.7kg"
+                },
+                imageColor: "#808080",
+                imageText: "RUNNING",
+                imageUrl: "https://picsum.photos/id/1060/800/600"
+            },
+            {
+                id: 11,
+                name: "Leather Handbag",
+                category: "new-bags",
+                price: 90,
+                stock: 7,
+                condition: "new",
+                description: "Genuine leather handbag with multiple compartments. Stylish and practical for everyday use.",
+                detailedDescription: "Stylish and practical leather handbag made from premium materials. Features multiple compartments for organization, secure zipper closure, and adjustable shoulder strap.",
+                specs: {
+                    "Material": "Genuine leather",
+                    "Dimensions": "30x20x10cm",
+                    "Color": "Brown, Black",
+                    "Compartments": "3 main + 2 inner pockets",
+                    "Origin": "Handmade in Ghana",
+                    "Weight": "0.7kg"
+                },
+                imageColor: "#8B4513",
+                imageText: "HANDBAG",
+                imageUrl: "https://picsum.photos/id/26/800/600"
+            },
+            {
+                id: 12,
+                name: "Used Backpack",
+                category: "used-bags",
+                price: 25,
+                stock: 12,
+                condition: "used",
+                description: "Used backpack in good condition. Perfect for school or casual use.",
+                detailedDescription: "Pre-owned backpack with multiple compartments. Great condition, clean and ready to use.",
+                specs: {
+                    "Material": "Nylon",
+                    "Capacity": "20L",
+                    "Condition": "Good condition",
+                    "Color": "Black, Blue",
+                    "Compartments": "Main + 2 side pockets",
+                    "Weight": "0.5kg"
+                },
+                imageColor: "#333333",
+                imageText: "BACKPACK",
+                imageUrl: "https://picsum.photos/id/27/800/600"
+            },
+            {
+                id: 13,
+                name: "Gold Necklace",
+                category: "new-jewelry",
+                price: 80,
+                stock: 30,
+                condition: "new",
+                description: "Elegant gold-plated necklace with traditional design. Perfect for special occasions.",
+                detailedDescription: "Beautiful gold-plated necklace featuring traditional Ghanaian design elements. Comes with secure clasp and presentation box.",
+                specs: {
+                    "Material": "Gold-plated brass",
+                    "Length": "45cm (adjustable)",
+                    "Closure": "Secure lobster clasp",
+                    "Design": "Traditional Ghanaian",
+                    "Weight": "15g"
+                },
+                imageColor: "#FFD700",
+                imageText: "NECKLACE",
+                imageUrl: "https://picsum.photos/id/28/800/600"
+            },
+            {
+                id: 14,
+                name: "Used Silver Earrings",
+                category: "used-jewelry",
+                price: 15,
+                stock: 25,
+                condition: "used",
+                description: "Silver earrings in good condition. Classic design for everyday wear.",
+                detailedDescription: "Pre-owned silver earrings in classic design. Cleaned and polished.",
+                specs: {
+                    "Material": "Silver-plated",
+                    "Style": "Stud earrings",
+                    "Condition": "Good condition",
+                    "Weight": "5g"
+                },
+                imageColor: "#C0C0C0",
+                imageText: "EARRINGS",
+                imageUrl: "https://picsum.photos/id/29/800/600"
+            },
+            {
+                id: 15,
+                name: "Kitchen Blender",
+                category: "new-appliances",
+                price: 80,
+                stock: 20,
+                condition: "new",
+                description: "Powerful kitchen blender for smoothies and food prep. High-performance with 800W motor.",
+                detailedDescription: "High-performance kitchen blender with 800W motor, perfect for making smoothies, soups, sauces, and more. Includes multiple speed settings and durable glass jar.",
+                specs: {
+                    "Power": "800W",
+                    "Capacity": "1.5L glass jar",
+                    "Speed Settings": "5 + pulse function",
+                    "Material": "Stainless steel blades",
+                    "Warranty": "1 year",
+                    "Weight": "3.5kg"
+                },
+                imageColor: "#808080",
+                imageText: "KITCHEN",
+                imageUrl: "https://picsum.photos/id/42/800/600"
+            },
+            {
+                id: 16,
+                name: "Cleaning Supplies Set",
+                category: "new-appliances",
+                price: 30,
+                stock: 50,
+                condition: "new",
+                description: "Complete cleaning supplies set for household cleaning. Includes all essential cleaning tools.",
+                detailedDescription: "Complete cleaning kit with all essential tools for household cleaning. Includes broom, mop, dustpan, brush, and cleaning cloths. Everything you need for maintaining a clean home.",
+                specs: {
+                    "Contents": "Broom, mop, dustpan, brush, cloths",
+                    "Material": "Plastic and microfiber",
+                    "Storage": "Comes with storage rack",
+                    "Suitable for": "All floor types",
+                    "Weight": "2.5kg"
+                },
+                imageColor: "#32CD32",
+                imageText: "CLEANING",
+                imageUrl: "https://picsum.photos/id/1048/800/600"
+            },
+            {
+                id: 17,
+                name: "Electric Kettle",
+                category: "used-appliances",
+                price: 35,
+                stock: 8,
+                condition: "used",
+                description: "Used electric kettle in working condition. Fast boiling with auto shut-off.",
+                detailedDescription: "Pre-owned electric kettle in good working condition. Tested and cleaned.",
+                specs: {
+                    "Capacity": "1.5L",
+                    "Condition": "Good working condition",
+                    "Features": "Auto shut-off",
+                    "Weight": "1.0kg"
+                },
+                imageColor: "#C0C0C0",
+                imageText: "KETTLE",
+                imageUrl: "https://picsum.photos/id/180/800/600"
+            },
+            {
+                id: 18,
+                name: "Wireless Earbuds",
+                category: "new-electronics",
+                price: 150,
+                stock: 30,
+                condition: "new",
+                description: "High-quality wireless earbuds with noise cancellation. 20-hour battery life and water resistance.",
+                detailedDescription: "Premium wireless earbuds with active noise cancellation, 20-hour battery life, and water resistance. Perfect for music, calls, and workouts.",
+                specs: {
+                    "Battery Life": "20 hours with case",
+                    "Charging": "USB-C, wireless charging",
+                    "Connectivity": "Bluetooth 5.2",
+                    "Water Resistance": "IPX5",
+                    "Warranty": "1 year",
+                    "Weight": "50g"
+                },
+                imageColor: "#000000",
+                imageText: "EARBUDS",
+                imageUrl: "https://picsum.photos/id/96/800/600"
+            },
+            {
+                id: 19,
+                name: "Power Bank",
+                category: "new-electronics",
+                price: 70,
+                stock: 40,
+                condition: "new",
+                description: "High capacity power bank for charging devices on the go. Fast charging technology.",
+                detailedDescription: "High capacity power bank with fast charging technology. Can charge multiple devices simultaneously and is perfect for travel or daily use.",
+                specs: {
+                    "Capacity": "20000mAh",
+                    "Output": "2 USB ports + USB-C",
+                    "Input": "USB-C fast charging",
+                    "Weight": "350g",
+                    "Dimensions": "15x7x2cm"
+                },
+                imageColor: "#333333",
+                imageText: "POWER",
+                imageUrl: "https://picsum.photos/id/1074/800/600"
+            },
+            {
+                id: 20,
+                name: "Used Smartphone",
+                category: "used-electronics",
+                price: 250,
+                stock: 5,
+                condition: "used",
+                description: "Used smartphone in good condition. Fully tested and reset.",
+                detailedDescription: "Pre-owned smartphone in good working condition. Factory reset and tested.",
+                specs: {
+                    "Screen": "6.2 inch",
+                    "Storage": "64GB",
+                    "Condition": "Good - minor scratches",
+                    "Battery": "80% capacity",
+                    "Weight": "170g"
+                },
+                imageColor: "#000000",
+                imageText: "PHONE",
+                imageUrl: "https://picsum.photos/id/160/800/600"
+            },
+            {
+                id: 21,
+                name: "Wooden Dining Table",
+                category: "new-furniture",
+                price: 350,
+                stock: 3,
+                condition: "new",
+                description: "Beautiful wooden dining table. Solid construction with traditional design.",
+                detailedDescription: "Handcrafted wooden dining table made from sustainable wood. Features traditional Ghanaian design elements and durable finish.",
+                specs: {
+                    "Material": "Solid wood",
+                    "Dimensions": "180x90x75cm",
+                    "Seating Capacity": "6-8 people",
+                    "Finish": "Natural wood finish",
+                    "Weight": "45kg"
+                },
+                imageColor: "#8B4513",
+                imageText: "TABLE",
+                imageUrl: "https://picsum.photos/id/165/800/600"
+            },
+            {
+                id: 22,
+                name: "Used Sofa Set",
+                category: "used-furniture",
+                price: 200,
+                stock: 2,
+                condition: "used",
+                description: "Used sofa set in good condition. Comfortable and clean.",
+                detailedDescription: "Pre-owned sofa set with 3 seats. Cleaned and in good condition.",
+                specs: {
+                    "Material": "Fabric",
+                    "Dimensions": "200x90x80cm",
+                    "Seating": "3 seats",
+                    "Condition": "Good - cleaned",
+                    "Weight": "60kg"
+                },
+                imageColor: "#8B4513",
+                imageText: "SOFA",
+                imageUrl: "https://picsum.photos/id/166/800/600"
+            },
+            {
+                id: 23,
+                name: "Decorative Cushion",
+                category: "new-home",
+                price: 35,
+                stock: 50,
+                condition: "new",
+                description: "Comfortable decorative cushion with traditional patterns. Features traditional Ghanaian Adinkra symbols.",
+                detailedDescription: "Beautiful decorative cushion featuring traditional Ghanaian Adinkra symbols. Made from soft cotton with removable cover for easy cleaning.",
+                specs: {
+                    "Material": "Cotton cover, polyester filling",
+                    "Size": "45x45cm",
+                    "Design": "Traditional Adinkra symbols",
+                    "Care": "Machine washable cover",
+                    "Origin": "Made in Ghana",
+                    "Weight": "0.4kg"
+                },
+                imageColor: "#FCD116",
+                imageText: "CUSHION",
+                imageUrl: "https://picsum.photos/id/164/800/600"
+            },
+            {
+                id: 24,
+                name: "Table Lamp",
+                category: "new-home",
+                price: 55,
+                stock: 20,
+                condition: "new",
+                description: "Modern table lamp with adjustable brightness. Perfect for bedside or desk use.",
+                detailedDescription: "Modern table lamp with adjustable brightness settings and energy-efficient LED bulb. Features a stylish design that complements any home decor.",
+                specs: {
+                    "Power": "9W LED",
+                    "Brightness": "Adjustable 3 levels",
+                    "Material": "Metal and fabric",
+                    "Height": "40cm",
+                    "Weight": "1.2kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "LAMP",
+                imageUrl: "https://picsum.photos/id/1058/800/600"
+            }
+        ];
+        
+        // 更新购物车数量
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+        
+        // 保存购物车到本地存储
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+        }
+        
+        // 添加到购物车
+        function addToCart(productId, event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            
+            const product = allProducts.find(p => p.id === productId);
+            if (!product) {
+                return;
+            }
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                if (existingItem.quantity < product.stock) {
+                    existingItem.quantity += 1;
+                } else {
+                    alert('Not enough stock available');
+                    return;
+                }
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    category: product.category,
+                    quantity: 1,
+                    stock: product.stock,
+                    condition: product.condition,
+                    imageColor: product.imageColor,
+                    imageText: product.imageText,
+                    imageUrl: product.imageUrl,
+                    specs: product.specs
+                });
+            }
+            
+            saveCart();
+            alert('Product added to cart!');
+        }
+        
+        // 搜索功能
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value;
+            if (query) {
+                localStorage.setItem('searchQuery', query);
+                loadPage('all-products', {search: query});
+            }
+        }
+        
+        // 页面加载函数
+        function loadPage(page, params = {}) {
+            const contentDiv = document.getElementById('page-content');
+            let html = '';
+            
+            const paramStr = Object.entries(params).map(([k, v]) => `${k}=${v}`).join('&');
+            window.location.hash = paramStr ? `${page}?${paramStr}` : page;
+            
+            switch(page) {
+                case 'home':
+                    html = `
+                    <main class="main-content">
+                        <h1 class="page-title">Welcome to Chaoliuer Store</h1>
+                        
+                        <!-- 店铺图片 -->
+                        <div style="text-align: center; margin: 2.5rem 0;">
+                            <div style="width: 100%; height: 300px; background: linear-gradient(45deg, var(--red), var(--gold), var(--green)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; font-weight: bold; padding: 0 20px; text-align: center;">
+                                CHAOLIUER STORE - QUALITY PRODUCTS IN GHANA
+                            </div>
+                        </div>
+                        
+                        <p>Your premier destination for quality retail and wholesale goods in Ghana. We specialize in a wide range of products from clothing and accessories to electronics and custom-made items.</p>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background: linear-gradient(90deg, #CE112611, #FCD11611, #006B3F11); border-radius: 8px;">
+                            <h2 style="color: var(--green); margin-bottom: 1.2rem;">Why Choose Us?</h2>
+                            <ul style="list-style-position: inside;">
+                                <li>Wide range of new and pre-owned quality items</li>
+                                <li>Professional customization services</li>
+                                <li>Competitive wholesale pricing</li>
+                                <li>Secure local payment options (MTN, Vodafone Cash, Bank Transfer)</li>
+                                <li>Reliable customer support</li>
+                            </ul>
+                        </div>
+                        
+                        <h2 style="color: var(--green); margin: 2.5rem 0 1.2rem;">Featured Products</h2>
+                        
+                        <div class="product-grid">
+                            ${allProducts.slice(0, 3).map(product => `
+                            <div class="product-card" onclick="loadPage('product-detail', {id: ${product.id}})">
+                                <div style="width: 100%; height: 200px; background-image: url('${product.imageUrl}'); background-size: cover; background-position: center; border-radius: 6px; margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.6rem; text-align: center; padding: 0 10px; text-shadow: 2px 2px 4px #000;">
+                                    ${product.imageText || product.name.split(' ')[0].toUpperCase()}
+                                </div>
+                                <h3 style="color: var(--red);">${product.name}</h3>
+                                <p>${product.description.substring(0, 80)}...</p>
+                                <div style="display: flex; justify-content: space-between; margin-top: auto;">
+                                    <span style="color: var(--red); font-weight: bold;">₵${product.price}</span>
+                                    <span class="${product.stock > 10 ? 'stock-in' : product.stock > 0 ? 'stock-low' : 'stock-out'}">
+                                        ${product.stock > 10 ? 'In Stock' : product.stock > 0 ? 'Low Stock' : 'Out of Stock'}
+                                    </span>
+                                </div>
+                            </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 2.5rem;">
+                            <button class="btn btn-primary" onclick="loadPage('all-products')" style="padding: 1rem 2.2rem;">
+                                Browse All Products
+                            </button>
+                        </div>
+                    </main>
+                    `;
+                    break;
+                    
+                case 'about':
+                    html = `
+                    <main class="main-content">
+                        <h1 class="page-title">About Chaoliuer Store</h1>
+                        
+                        <!-- 关于店铺图片 -->
+                        <div style="width: 100%; height: 300px; background: linear-gradient(45deg, var(--red), var(--gold), var(--green)); border-radius: 10px; margin: 2.5rem 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; font-weight: bold;">
+                            ABOUT US
+                        </div>
+                        
+                        <p>Founded with a vision to provide quality and accessible goods to communities across Ghana, Chaoliuer Store has grown from a small retail operation to a comprehensive supplier serving both individual customers and businesses.</p>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #f9f9f9; border-radius: 8px;">
+                            <h2 style="color: var(--green); margin-bottom: 1.2rem;">Our Mission</h2>
+                            <p>To deliver quality products, reliable customization services, and competitive wholesale solutions while supporting local economies and providing secure, convenient payment options tailored to the Ghanaian market.</p>
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #f9f9f9; border-radius: 8px;">
+                            <h2 style="color: var(--green); margin-bottom: 1.2rem;">Our Values</h2>
+                            <ul style="list-style-position: inside; margin-left: 1.2rem;">
+                                <li><strong>Quality Assurance:</strong> Every product meets our standards</li>
+                                <li><strong>Customer Focus:</strong> We prioritize your needs</li>
+                                <li><strong>Local Adaptation:</strong> Services designed for Ghana</li>
+                                <li><strong>Integrity:</strong> Transparent pricing and honest practices</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #f9f9f9; border-radius: 8px;">
+                            <h2 style="color: var(--green); margin-bottom: 1.2rem;">Why We're Different</h2>
+                            <p>Unlike general retailers, we specialize in both new and quality pre-owned items, reducing waste while making goods more affordable. Our customization services allow personal expression, and our wholesale division supports businesses across the country.</p>
+                        </div>
+                    </main>
+                    `;
+                    break;
+                    
+                case 'business':
+                    html = `
+                    <main class="main-content">
+                        <h1 class="page-title">Our Business Services</h1>
+                        
+                        <!-- 业务图片 -->
+                        <div style="width: 100%; height: 300px; background: linear-gradient(45deg, var(--red), var(--gold), var(--green)); border-radius: 10px; margin: 2.5rem 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; font-weight: bold;">
+                            OUR BUSINESS
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #fff0f0; border-radius: 8px;">
+                            <h2 style="color: var(--green);">Retail Division</h2>
+                            <p>We offer a wide selection of quality products for individual customers:</p>
+                            <ul style="list-style-position: inside; margin-left: 1.2rem;">
+                                <li>New & Used Clothing, Shoes, Bags, Hats, Jewelry</li>
+                                <li>Daily Necessities & Small Appliances</li>
+                                <li>Electronics & Gadgets</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #fff8f0; border-radius: 8px;">
+                            <h2 style="color: var(--green);">Personal Customization</h2>
+                            <p>Create unique items tailored to your preferences:</p>
+                            <ul style="list-style-position: inside; margin-left: 1.2rem;">
+                                <li>Clothing, Bags, Hats</li>
+                                <li>Furniture & Home Decor</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #f0fff0; border-radius: 8px;">
+                            <h2 style="color: var(--green);">Wholesale</h2>
+                            <p>Specialized services for businesses, organizations, and groups:</p>
+                            <ul style="list-style-position: inside; margin-left: 1.2rem;">
+                                <li>Group Customization</li>
+                                <li>Clothing, Bags, Hats</li>
+                                <li>Stationery & Office Supplies</li>
+                                <li>Promotional Water Bottles</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin-top: 2.5rem; padding: 1.8rem; background-color: #fff8e1; border-radius: 8px;">
+                            <p style="margin-top: 1rem;">
+                                <button class="btn btn-primary" onclick="loadPage('payment')">
+                                    View detailed payment instructions →
+                                </button>
+                            </p>
+                        </div>
+                    </main>
+                    `;
+                    break;
+                    
+                case 'products':
+                    html = `
+                    <main class="main-content">
+                        <h1 class="page-title">Product Categories</h1>
+                        
+                        <p>Browse products by category. Each category contains multiple products with details, prices, and stock information.</p>
+                        
+                        <div class="category-grid">
+                            <!-- 新服装 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'new-clothing'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--red), var(--gold));">
+                                    <div class="category-label">NEW CLOTHING</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>New Clothing</h3>
+                                    <p>Latest fashion items including dresses, shirts, trousers</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 二手服装 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'used-clothing'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--gold), var(--red));">
+                                    <div class="category-label">USED CLOTHING</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>Used Clothing</h3>
+                                    <p>Quality second-hand items at affordable prices</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 新鞋类 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'new-shoes'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--green), var(--gold));">
+                                    <div class="category-label">NEW SHOES</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>New Shoes & Footwear</h3>
+                                    <p>New shoes for all occasions</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 旧鞋类 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'used-shoes'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--gold), var(--green));">
+                                    <div class="category-label">USED SHOES</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>Used Shoes</h3>
+                                    <p>Quality pre-owned shoes at great prices</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 新箱包 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'new-bags'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--red), var(--green));">
+                                    <div class="category-label">NEW BAGS</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>New Bags & Accessories</h3>
+                                    <p>Handbags, backpacks, wallets</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 旧箱包 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'used-bags'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--green), var(--red));">
+                                    <div class="category-label">USED BAGS</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>Used Bags</h3>
+                                    <p>Pre-owned bags in good condition</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 新首饰 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'new-jewelry'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--gold), var(--red), var(--green));">
+                                    <div class="category-label">NEW JEWELRY</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>New Jewelry</h3>
+                                    <p>Necklaces, earrings, bracelets, rings</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 旧首饰 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'used-jewelry'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--red), var(--gold), var(--green));">
+                                    <div class="category-label">USED JEWELRY</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>Used Jewelry</h3>
+                                    <p>Pre-owned jewelry pieces</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 新家电 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'new-appliances'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--green), var(--gold));">
+                                    <div class="category-label">NEW APPLIANCES</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>New Appliances</h3>
+                                    <p>Kitchen and home appliances</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 旧家电 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'used-appliances'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--gold), var(--green));">
+                                    <div class="category-label">USED APPLIANCES</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>Used Appliances</h3>
+                                    <p>Pre-owned appliances in working condition</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 新电子产品 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'new-electronics'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--red), var(--gold), var(--green));">
+                                    <div class="category-label">NEW ELECTRONICS</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>New Electronics</h3>
+                                    <p>Mobile accessories, gadgets, devices</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 旧电子产品 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'used-electronics'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--gold), var(--red), var(--green));">
+                                    <div class="category-label">USED ELECTRONICS</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>Used Electronics</h3>
+                                    <p>Pre-owned electronics in good condition</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 新家具 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'new-furniture'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--green), var(--red));">
+                                    <div class="category-label">NEW FURNITURE</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>New Furniture</h3>
+                                    <p>Tables, chairs, sofas, beds</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 旧家具 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'used-furniture'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--red), var(--green));">
+                                    <div class="category-label">USED FURNITURE</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>Used Furniture</h3>
+                                    <p>Pre-owned furniture in good condition</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 家居 -->
+                            <div class="category-card" onclick="loadPage('all-products', {category: 'new-home'})">
+                                <div class="category-image" style="background: linear-gradient(45deg, var(--gold), var(--red), var(--green));">
+                                    <div class="category-label">HOME & LIVING</div>
+                                </div>
+                                <div class="category-content">
+                                    <h3>Home & Living</h3>
+                                    <p>Decorative items and practical home goods</p>
+                                    <div class="view-link">View Products →</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="availability-note">
+                            <h3>Product Availability Note</h3>
+                            <p>Inventory varies by season and demand. Contact us to check availability.</p>
+                            <p style="margin-top: 1.2rem;">
+                                <button class="btn btn-primary" onclick="loadPage('contact')">
+                                    Inquire About Products
+                                </button>
+                            </p>
+                        </div>
+                    </main>
+                    `;
+                    break;
+                    
+                case 'all-products':
+                    // 处理搜索参数
+                    let searchQuery = params.search || localStorage.getItem('searchQuery') || '';
+                    let categoryFilter = params.category || '';
+                    let conditionFilter = params.condition || '';
+                    let priceFilter = params.price || '';
+                    
+                    // 清空搜索存储
+                    if (!params.search) {
+                        localStorage.removeItem('searchQuery');
+                    }
+                    
+                    // 解析筛选参数
+                    const selectedCategories = categoryFilter ? categoryFilter.split(',') : [];
+                    const selectedCondition = conditionFilter;
+                    const maxPrice = priceFilter ? parseInt(priceFilter) : 1000;
+                    
+                    // 生成筛选状态显示
+                    let activeFiltersHtml = '';
+                    if (selectedCategories.length > 0 || selectedCondition || maxPrice < 1000) {
+                        activeFiltersHtml = `
+                        <div class="filter-status">
+                            <h4>Active Filters:</h4>
+                            <div class="active-filters">
+                                ${selectedCategories.map(cat => {
+                                    const categoryName = cat.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+                                    return `<div class="active-filter-tag">${categoryName} <span class="remove-filter" onclick="removeFilter('category', '${cat}')">&times;</span></div>`;
+                                }).join('')}
+                                ${selectedCondition ? `<div class="active-filter-tag">Condition: ${selectedCondition} <span class="remove-filter" onclick="removeFilter('condition', '${selectedCondition}')">&times;</span></div>` : ''}
+                                ${maxPrice < 1000 ? `<div class="active-filter-tag">Max Price: ₵${maxPrice} <span class="remove-filter" onclick="removeFilter('price', '${maxPrice}')">&times;</span></div>` : ''}
+                            </div>
+                            <div class="clear-all-filters" onclick="clearAllFilters()">Clear all filters</div>
+                        </div>
+                        `;
+                    }
+                    
+                    html = `
+                    <main class="main-content">
+                        <h1 class="page-title">All Products</h1>
+                        <p>Browse our complete product collection. Filter by category or search for specific items.</p>
+                        
+                        <!-- 筛选器和产品列表容器 -->
+                        <div class="products-layout">
+                            <!-- 筛选侧边栏 -->
+                            <aside class="filters-sidebar">
+                                <h3>Filters</h3>
+                                
+                                ${activeFiltersHtml}
+                                
+                                <div class="filter-group">
+                                    <h4>Category</h4>
+                                    <div class="filter-options">
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-new-clothing" ${selectedCategories.includes('new-clothing') ? 'checked' : ''}>
+                                            <span>New Clothing</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-used-clothing" ${selectedCategories.includes('used-clothing') ? 'checked' : ''}>
+                                            <span>Used Clothing</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-new-shoes" ${selectedCategories.includes('new-shoes') ? 'checked' : ''}>
+                                            <span>New Shoes</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-used-shoes" ${selectedCategories.includes('used-shoes') ? 'checked' : ''}>
+                                            <span>Used Shoes</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-new-bags" ${selectedCategories.includes('new-bags') ? 'checked' : ''}>
+                                            <span>New Bags</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-used-bags" ${selectedCategories.includes('used-bags') ? 'checked' : ''}>
+                                            <span>Used Bags</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-new-jewelry" ${selectedCategories.includes('new-jewelry') ? 'checked' : ''}>
+                                            <span>New Jewelry</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-used-jewelry" ${selectedCategories.includes('used-jewelry') ? 'checked' : ''}>
+                                            <span>Used Jewelry</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-new-appliances" ${selectedCategories.includes('new-appliances') ? 'checked' : ''}>
+                                            <span>New Appliances</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-used-appliances" ${selectedCategories.includes('used-appliances') ? 'checked' : ''}>
+                                            <span>Used Appliances</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-new-electronics" ${selectedCategories.includes('new-electronics') ? 'checked' : ''}>
+                                            <span>New Electronics</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-used-electronics" ${selectedCategories.includes('used-electronics') ? 'checked' : ''}>
+                                            <span>Used Electronics</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-new-furniture" ${selectedCategories.includes('new-furniture') ? 'checked' : ''}>
+                                            <span>New Furniture</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-used-furniture" ${selectedCategories.includes('used-furniture') ? 'checked' : ''}>
+                                            <span>Used Furniture</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="checkbox" id="cat-new-home" ${selectedCategories.includes('new-home') ? 'checked' : ''}>
+                                            <span>Home & Living</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <h4>Price Range</h4>
+                                    <input type="range" min="0" max="1000" value="${maxPrice}" class="price-slider" id="priceSlider">
+                                    <div class="price-range">
+                                        <span>₵0</span>
+                                        <span>₵1000</span>
+                                    </div>
+                                    <div class="current-price">Max Price: <span id="maxPrice">₵${maxPrice}</span></div>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <h4>Condition</h4>
+                                    <div class="filter-options">
+                                        <label class="filter-option">
+                                            <input type="radio" name="condition" value="" ${!selectedCondition ? 'checked' : ''}>
+                                            <span>All</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="radio" name="condition" value="new" ${selectedCondition === 'new' ? 'checked' : ''}>
+                                            <span>New</span>
+                                        </label>
+                                        <label class="filter-option">
+                                            <input type="radio" name="condition" value="used" ${selectedCondition === 'used' ? 'checked' : ''}>
+                                            <span>Used</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <!-- 筛选确认按钮 -->
+                                <div class="filter-actions">
+                                    <button class="btn btn-primary" id="applyFilters">
+                                        <i class="fas fa-check"></i> Apply Selected Filters
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="resetFilters()">
+                                        <i class="fas fa-undo"></i> Reset Filters
+                                    </button>
+                                </div>
+                            </aside>
+                            
+                            <!-- 产品网格区域 -->
+                            <div class="products-main">
+                                <!-- 排序选项 -->
+                                <div class="sort-options">
+                                    <select id="sortSelect">
+                                        <option value="default">Default Sort</option>
+                                        <option value="price-asc">Price: Low to High</option>
+                                        <option value="price-desc">Price: High to Low</option>
+                                        <option value="name-asc">Name: A to Z</option>
+                                        <option value="name-desc">Name: Z to A</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- 产品网格 -->
+                                <div class="products-grid" id="productsGrid">
+                                    ${(() => {
+                                        // 过滤产品
+                                        let filteredProducts = allProducts.filter(product => {
+                                            // 搜索过滤
+                                            if (searchQuery && !product.name.toLowerCase().includes(searchQuery.toLowerCase()) && !product.description.toLowerCase().includes(searchQuery.toLowerCase())) {
+                                                return false;
+                                            }
+                                            // 分类过滤
+                                            if (selectedCategories.length > 0 && !selectedCategories.includes(product.category)) {
+                                                return false;
+                                            }
+                                            // 状态过滤
+                                            if (selectedCondition && product.condition !== selectedCondition) {
+                                                return false;
+                                            }
+                                            // 价格过滤
+                                            if (product.price > maxPrice) {
+                                                return false;
+                                            }
+                                            return true;
+                                        });
+                                        
+                                        // 如果没有产品，显示空状态
+                                        if (filteredProducts.length === 0) {
+                                            return `
+                                            <div class="empty-state">
+                                                <div class="empty-icon">📦</div>
+                                                <h3>No products found</h3>
+                                                <p>Try adjusting your filters or search criteria</p>
+                                                <button class="btn btn-primary" onclick="resetFilters()" style="margin-top: 1.5rem;">
+                                                    Reset Filters
+                                                </button>
+                                            </div>
+                                            `;
+                                        }
+                                        
+                                        // 渲染产品卡片
+                                        return filteredProducts.map(product => `
+                                        <div class="products-item">
+                                            <div class="products-image" style="background-image: url('${product.imageUrl}')">
+                                                <span class="products-badge">${product.condition.toUpperCase()}</span>
+                                                <div class="products-image-text">${product.imageText}</div>
+                                            </div>
+                                            <div class="products-info">
+                                                <div class="products-category">${product.category.replace('-', ' ')}</div>
+                                                <h3 class="products-title">${product.name}</h3>
+                                                <p class="products-description">${product.description}</p>
+                                                <div class="products-details">
+                                                    <div class="products-price">₵${product.price}</div>
+                                                    <div class="products-stock">
+                                                        <span class="${product.stock > 10 ? 'stock-in' : product.stock > 0 ? 'stock-low' : 'stock-out'}">
+                                                            ${product.stock > 0 ? (product.stock > 10 ? 'In Stock' : 'Low Stock') : 'Out of Stock'}
+                                                        </span>
+                                                        <span class="stock-count">${product.stock} items available</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary btn-block" onclick="addToCart(${product.id}, event)" ${product.stock === 0 ? 'disabled' : ''}>
+                                                    ${product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+                                                </button>
+                                                <button class="btn btn-secondary btn-block" style="margin-top: 0.6rem;" onclick="loadPage('product-detail', {id: ${product.id}})">
+                                                    View Details
+                                                </button>
+                                            </div>
+                                        </div>
+                                        `).join('');
+                                    })()}
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    `;
+                    break;
+                    
+                case 'customization':
+                    html = `
+                    <main class="main-content">
+                        <h1 class="page-title">Customization Services</h1>
+                        
+                        <!-- 定制服务图片 -->
+                        <div style="width: 100%; height: 300px; background: linear-gradient(45deg, var(--red), var(--gold), var(--green)); border-radius: 10px; margin: 2.5rem 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; font-weight: bold;">
+                            CUSTOMIZATION SERVICES
+                        </div>
+                        
+                        <p>We offer professional customization services for personal and business needs. Create unique items tailored to your specifications.</p>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #f9f9f9; border-radius: 8px;">
+                            <h2 style="color: var(--green); margin-bottom: 1.2rem;">Personal Customization</h2>
+                            <ul style="list-style-position: inside; margin-left: 1.2rem;">
+                                <li><strong>Clothing:</strong> Custom designs, sizes, fabrics, and patterns</li>
+                                <li><strong>Bags & Accessories:</strong> Personalized bags, hats, jewelry</li>
+                                <li><strong>Home Decor:</strong> Custom furniture, cushions, wall art</li>
+                            </ul>
+                            <p style="margin-top: 1.2rem;">Minimum order: 1 item</p>
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #f9f9f9; border-radius: 8px;">
+                            <h2 style="color: var(--green); margin-bottom: 1.2rem;">Wholesale/Business Customization</h2>
+                            <ul style="list-style-position: inside; margin-left: 1.2rem;">
+                                <li><strong>Uniforms:</strong> Custom branded uniforms for businesses</li>
+                                <li><strong>Promotional Items:</strong> Branded bags, hats, water bottles</li>
+                                <li><strong>Office Supplies:</strong> Custom stationery, branded materials</li>
+                                <li><strong>Event Merchandise:</strong> Custom items for events and campaigns</li>
+                            </ul>
+                            <p style="margin-top: 1.2rem;">Minimum order: Varies by product (typically 10+ items)</p>
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #fff8e1; border-radius: 8px;">
+                            <h3 style="color: var(--red);">How to Order Custom Items</h3>
+                            <ol style="list-style-position: inside; margin-left: 1.2rem; margin-top: 1.2rem;">
+                                <li>Contact us with your customization requirements</li>
+                                <li>We provide a quote and design mockup</li>
+                                <li>Confirm your order and make payment (50% deposit required)</li>
+                                <li>Production and quality check</li>
+                                <li>Delivery or pickup of finished items</li>
+                            </ol>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 2.5rem;">
+                            <button class="btn btn-primary" onclick="loadPage('contact')">
+                                Contact Us for Customization
+                            </button>
+                        </div>
+                    </main>
+                    `;
+                    break;
+                    
+                case 'contact':
+                    html = `
+                    <main class="main-content">
+                        <h1 class="page-title">Contact Us</h1>
+                        
+                        <!-- 联系我们图片 -->
+                        <div style="width: 100%; height: 300px; background: linear-gradient(45deg, var(--red), var(--gold), var(--green)); border-radius: 10px; margin: 2.5rem 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; font-weight: bold;">
+                            CONTACT US
+                        </div>
+                        
+                        <p>We're here to help with any questions, orders, or customization requests. Reach out through any of the following channels:</p>
+                        
+                        <div class="contact-cards">
+                            <div class="contact-card">
+                                <div class="icon">📞</div>
+                                <h3>Phone & WhatsApp</h3>
+                                <p><strong>Phone:</strong> +233 20 941 2194</p>
+                                <p>Mon-Sat, 8:00 AM - 7:00 PM</p>
+                                <div style="margin-top: auto;">
+                                    <a href="https://wa.me/233209412194" class="btn btn-primary" target="_blank">
+                                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="icon">📱</div>
+                                <h3>WeChat</h3>
+                                <p><strong>WeChat:</strong> +86 186 2031 0341</p>
+                                <p><strong>WeChat ID:</strong> 18620310341</p>
+                                <div style="margin-top: auto;">
+                                    <button class="btn btn-secondary" onclick="alert('WeChat: +86 186 2031 0341\\nWeChat ID: 18620310341\\nPlease add us on WeChat using this ID.')">
+                                        <i class="fab fa-weixin"></i> WeChat Info
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="icon">📧</div>
+                                <h3>Email</h3>
+                                <p><strong>Email:</strong> shiyumarry@gmail.com</p>
+                                <p>Response time: 24 hours</p>
+                                <div style="margin-top: auto;">
+                                    <a href="mailto:shiyumarry@gmail.com" class="btn btn-danger">
+                                        <i class="fas fa-envelope"></i> Send Email
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="icon">🏪</div>
+                                <h3>Physical Location</h3>
+                                <p><strong>Location:</strong> Accra, Ghana</p>
+                                <p>Mon-Sat, 9:00 AM - 6:00 PM</p>
+                                <div style="margin-top: auto;">
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-map-marker-alt"></i> Get Directions
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #f9f9f9; border-radius: 8px;">
+                            <h3 style="color: var(--red);">Business Hours</h3>
+                            <ul style="list-style-position: inside; margin-left: 1.2rem;">
+                                <li>Monday - Saturday: 8:00 AM - 7:00 PM</li>
+                                <li>Sunday: Closed (WhatsApp only)</li>
+                                <li>Public Holidays: 10:00 AM - 4:00 PM</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="contact-form">
+                            <h3>Quick Inquiry Form</h3>
+                            
+                            <form id="inquiryForm" onsubmit="return submitInquiry(event)">
+                                <div class="form-group">
+                                    <label for="contactName">Name</label>
+                                    <input type="text" id="contactName" class="form-control" placeholder="Your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPhone">Phone Number</label>
+                                    <input type="tel" id="contactPhone" class="form-control" placeholder="+233 20 941 2194" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email (optional)</label>
+                                    <input type="email" id="contactEmail" class="form-control" placeholder="shiyumarry@gmail.com">
+                                </div>
+                                
+                                <!-- 更新：折叠复选框组 -->
+                                <div class="form-group">
+                                    <label for="contactSubject">Subject (Select one or more)</label>
+                                    <div class="collapsible-checkbox-group">
+                                        <div class="collapsible-header" onclick="toggleCollapsible('subjectCollapsible')">
+                                            <h4>Select Inquiry Topics</h4>
+                                            <span class="collapsible-icon">▼</span>
+                                        </div>
+                                        <div class="collapsible-content" id="subjectCollapsible">
+                                            <div class="checkbox-options">
+                                                <label class="checkbox-option">
+                                                    <input type="checkbox" name="subject" value="product-inquiry">
+                                                    <span>Product Inquiry</span>
+                                                </label>
+                                                <label class="checkbox-option">
+                                                    <input type="checkbox" name="subject" value="order-status">
+                                                    <span>Order Status</span>
+                                                </label>
+                                                <label class="checkbox-option">
+                                                    <input type="checkbox" name="subject" value="customization">
+                                                    <span>Customization Request</span>
+                                                </label>
+                                                <label class="checkbox-option">
+                                                    <input type="checkbox" name="subject" value="wholesale">
+                                                    <span>Wholesale/Business</span>
+                                                </label>
+                                                <label class="checkbox-option">
+                                                    <input type="checkbox" name="subject" value="payment">
+                                                    <span>Payment Question</span>
+                                                </label>
+                                                <label class="checkbox-option">
+                                                    <input type="checkbox" name="subject" value="delivery">
+                                                    <span>Delivery Information</span>
+                                                </label>
+                                                <label class="checkbox-option">
+                                                    <input type="checkbox" name="subject" value="returns">
+                                                    <span>Returns/Exchange</span>
+                                                </label>
+                                                <label class="checkbox-option">
+                                                    <input type="checkbox" name="subject" value="other">
+                                                    <span>Other Inquiry</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="selected-topics" id="selectedTopicsContainer" style="display: none;">
+                                        <h5>Selected Topics:</h5>
+                                        <div class="selected-topics-list" id="selectedTopicsList"></div>
+                                    </div>
+                                    <div class="select-hint">Click the header above to expand/collapse the topic list</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contactMessage">Your Message</label>
+                                    <textarea id="contactMessage" class="form-control" placeholder="Your inquiry..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Inquiry</button>
+                            </form>
+                        </div>
+                        
+                        <div style="margin-top: 2.5rem; padding: 1.8rem; background-color: #fff8e1; border-radius: 8px; text-align: center;">
+                            <h3 style="color: var(--green); margin-bottom: 1rem;">All Contact Information</h3>
+                            <p style="margin-bottom: 0.5rem;"><strong>WhatsApp/Phone:</strong> +233 20 941 2194</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>WeChat:</strong> +86 186 2031 0341</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>WeChat ID:</strong> 18620310341</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>Email:</strong> shiyumarry@gmail.com</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>Location:</strong> Accra, Ghana</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>Store Hours:</strong> Mon-Sat, 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </main>
+                    `;
+                    break;
+                    
+                case 'payment':
+                    html = `
+                    <main class="main-content">
+                        <h1 class="page-title">Payment Guide</h1>
+                        
+                        <!-- 支付指南图片 -->
+                        <div style="width: 100%; height: 300px; background: linear-gradient(45deg, var(--red), var(--gold), var(--green)); border-radius: 10px; margin: 2.5rem 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; font-weight: bold;">
+                            PAYMENT METHODS
+                        </div>
+                        
+                        <p>We accept various secure payment methods tailored to the Ghanaian market. All payments are processed locally for your convenience.</p>
+                        
+                        <div class="payment-cards">
+                            <div class="payment-card mtn">
+                                <h3>📱 MTN Mobile Money</h3>
+                                <ol>
+                                    <li>Dial *170#</li>
+                                    <li>Select "MoMo Pay & PayBill"</li>
+                                    <li>Select "PayBill"</li>
+                                    <li>Enter Code: <strong>12345</strong></li>
+                                    <li>Enter Amount and Reference (your name)</li>
+                                    <li>Confirm with your PIN</li>
+                                </ol>
+                                <div class="note">
+                                    Please send proof of payment via WhatsApp: +233 20 941 2194
+                                </div>
+                            </div>
+                            
+                            <div class="payment-card vodafone">
+                                <h3>📱 Vodafone Cash</h3>
+                                <ol>
+                                    <li>Dial *110#</li>
+                                    <li>Select "Make Payment"</li>
+                                    <li>Select "Pay to Business"</li>
+                                    <li>Enter Business ID: <strong>54321</strong></li>
+                                    <li>Enter Amount and Reference</li>
+                                    <li>Confirm with your PIN</li>
+                                </ol>
+                                <div class="note">
+                                    Please send proof of payment via WhatsApp: +233 20 941 2194
+                                </div>
+                            </div>
+                            
+                            <div class="payment-card bank">
+                                <h3>🏦 Bank Transfer</h3>
+                                <ul>
+                                    <li><strong>Bank:</strong> Ghana Commercial Bank (GCB)</li>
+                                    <li><strong>Account Name:</strong> Chaoliuer Store</li>
+                                    <li><strong>Account Number:</strong> 1234567890</li>
+                                    <li><strong>Branch:</strong> Accra Central</li>
+                                </ul>
+                                <div class="note">
+                                    Please send proof of payment via WhatsApp: +233 20 941 2194
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 安全支付小贴士 -->
+                        <div class="security-tips">
+                            <h3>Security Payment Tips</h3>
+                            <ul>
+                                <li><strong>Only use official payment channels</strong> provided on this page</li>
+                                <li><strong>Never share your PIN or verification codes</strong> with anyone, including our staff</li>
+                                <li><strong>Always verify the recipient name</strong> before confirming payment</li>
+                                <li><strong>Save your payment confirmation</strong> and share it with us via WhatsApp for verification</li>
+                                <li><strong>Contact us immediately</strong> if you suspect any fraudulent activity</li>
+                                <li><strong>We will never ask for your password</strong> or full bank account details</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #fff8e1; border-radius: 8px;">
+                            <h3 style="color: var(--red);">Important Payment Notes</h3>
+                            <ul style="list-style-position: inside; margin-left: 1.2rem;">
+                                <li>For custom orders: 50% deposit required to start production</li>
+                                <li>Wholesale orders: Full payment or 30% deposit (T&Cs apply)</li>
+                                <li>Please include your name/order reference in all payments</li>
+                                <li>Send payment confirmation via WhatsApp (+233 20 941 2194) for faster processing</li>
+                                <li>We will confirm receipt within 1 hour during business hours</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin: 2.5rem 0; padding: 1.8rem; background-color: #e8f5e9; border-radius: 8px;">
+                            <h3 style="color: var(--green);">Delivery & Pickup</h3>
+                            <ul style="list-style-position: inside; margin-left: 1.2rem;">
+                                <li>Free pickup from our store in Accra</li>
+                                <li>Delivery within Accra: ₵20 flat fee</li>
+                                <li>Regional delivery: Calculated based on location</li>
+                                <li>Delivery time: 1-3 business days after payment confirmation</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 2.5rem;">
+                            <button class="btn btn-primary" onclick="loadPage('contact')">
+                                <i class="fas fa-question-circle"></i> Payment Questions? Contact Us: +233 20 941 2194
+                            </button>
+                        </div>
+                    </main>
+                    `;
+                    break;
+                    
+                case 'cart':
+                    if (cart.length === 0) {
+                        html = `
+                        <main class="main-content">
+                            <h1 class="page-title">Your Shopping Cart</h1>
+                            
+                            <div style="text-align: center; padding: 5rem 0;">
+                                <div style="font-size: 4.5rem; margin-bottom: 1.2rem;">🛒</div>
+                                <h2 style="color: #666; margin-bottom: 1.2rem;">Your cart is empty</h2>
+                                <p style="color: #999; margin-bottom: 2.5rem;">Start shopping to add items to your cart</p>
+                                <button class="btn btn-primary" onclick="loadPage('all-products')">
+                                    Browse Products
+                                </button>
+                            </div>
+                        </main>
+                        `;
+                    } else {
+                        let totalAmount = 0;
+                        
+                        html = `
+                        <main class="main-content">
+                            <h1 class="page-title">Your Shopping Cart</h1>
+                            
+                            <div style="margin-bottom: 2.5rem;">
+                                ${cart.map(item => {
+                                    const itemTotal = item.price * item.quantity;
+                                    totalAmount += itemTotal;
+                                    
+                                    // 构建规格字符串
+                                    let specsString = '';
+                                    if (item.specs) {
+                                        specsString = Object.entries(item.specs)
+                                            .slice(0, 2)
+                                            .map(([key, value]) => `${key}: ${value}`)
+                                            .join(' | ');
+                                    }
+                                    
+                                    return `
+                                    <div class="cart-item">
+                                        <img src="${item.imageUrl}" alt="${item.name}" class="cart-item-image" style="background-color: ${item.imageColor || '#f5f5f5'}; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                        <div class="cart-item-details">
+                                            <h3 class="cart-item-title">${item.name}</h3>
+                                            <p class="cart-item-price">₵${item.price} each</p>
+                                            ${specsString ? `<p class="cart-item-specs">${specsString}</p>` : ''}
+                                            <p>Category: ${item.category.replace('-', ' ')} | Condition: ${item.condition}</p>
+                                        </div>
+                                        <div class="cart-quantity">
+                                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, -1)">-</button>
+                                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="${item.stock}" onchange="updateCartQuantity(${item.id}, this.value)">
+                                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, 1)">+</button>
+                                        </div>
+                                        <div style="min-width: 120px; text-align: right;">
+                                            <p style="font-weight: bold; color: var(--red); font-size: 1.3rem;">₵${itemTotal}</p>
+                                            <button class="btn btn-danger" style="margin-top: 0.6rem;" onclick="removeFromCart(${item.id})">
+                                                Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                            
+                            <div class="cart-total">
+                                Total: ₵${totalAmount}
+                            </div>
+                            
+                            <div style="display: flex; gap: 1.2rem; justify-content: flex-end;">
+                                <button class="btn btn-secondary" onclick="clearCart()">
+                                    Clear Cart
+                                </button>
+                                <button class="btn btn-primary" onclick="proceedToCheckout()">
+                                    Proceed to Checkout
+                                </button>
+                            </div>
+                            
+                            <div style="margin-top: 2.5rem; padding: 1.8rem; background-color: #f8f9fa; border-radius: 8px;">
+                                <h3 style="color: var(--green); margin-bottom: 1.2rem;">Payment Options</h3>
+                                <p>We accept MTN Mobile Money, Vodafone Cash, and Bank Transfer. After checkout, you will receive payment instructions.</p>
+                                <p style="margin-top: 1rem;"><strong>Contact for payment questions:</strong> +233 20 941 2194</p>
+                                <button class="btn btn-secondary" style="margin-top: 1.2rem;" onclick="loadPage('payment')">
+                                    View Payment Guide
+                                </button>
+                            </div>
+                        </main>
+                        `;
+                    }
+                    break;
+                    
+                case 'product-detail':
+                    const productId = parseInt(params.id);
+                    const product = allProducts.find(p => p.id === productId) || null;
+                    
+                    if (!product) {
+                        html = `
+                        <main class="main-content">
+                            <h1 class="page-title">Product Not Found</h1>
+                            <div style="text-align: center; padding: 5rem 0;">
+                                <div style="font-size: 4.5rem; margin-bottom: 1.2rem;">❌</div>
+                                <h2 style="color: #666; margin-bottom: 1.2rem;">Product not found</h2>
+                                <p style="color: #999; margin-bottom: 2.5rem;">The requested product could not be found</p>
+                                <button class="btn btn-primary" onclick="loadPage('all-products')">
+                                    Browse All Products
+                                </button>
+                            </div>
+                        </main>
+                        `;
+                    } else {
+                        html = `
+                        <main class="main-content">
+                            <a href="javascript:void(0)" class="back-button" onclick="loadPage('all-products')">← Back to Products</a>
+                            
+                            <div class="product-detail-layout">
+                                <div class="product-detail-image-container">
+                                    <img src="${product.imageUrl}" alt="${product.name}" class="product-detail-image">
+                                </div>
+                                
+                                <div class="product-detail-info">
+                                    <h1 class="product-detail-title">${product.name}</h1>
+                                    <p class="product-detail-category">Category: ${product.category.replace('-', ' ')} | Condition: ${product.condition}</p>
+                                    <p class="product-detail-price">₵${product.price}</p>
+                                    
+                                    <div class="${product.stock > 10 ? 'stock-in' : product.stock > 0 ? 'stock-low' : 'stock-out'}">
+                                        ${product.stock > 0 ? (product.stock > 10 ? 'In Stock' : 'Low Stock') : 'Out of Stock'}
+                                        <span class="stock-count">${product.stock} items available</span>
+                                    </div>
+                                    
+                                    <div class="product-detail-description">
+                                        ${product.detailedDescription}
+                                    </div>
+                                    
+                                    <div class="product-detail-specs">
+                                        <h3>Product Specifications</h3>
+                                        <div class="specs-grid">
+                                            ${Object.entries(product.specs).map(([name, value]) => `
+                                            <div class="spec-item">
+                                                <span class="spec-name">${name}:</span>
+                                                <span class="spec-value">${value}</span>
+                                            </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-block" onclick="addToCart(${product.id}, event)" ${product.stock === 0 ? 'disabled' : ''}>
+                                            ${product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+                                        </button>
+                                        <button class="btn btn-secondary btn-block" onclick="loadPage('contact')">
+                                            <i class="fas fa-phone"></i> Inquire (+233 20 941 2194)
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                        `;
+                    }
+                    break;
+                    
+                default:
+                    html = `
+                    <main class="main-content">
+                        <h1 class="page-title">Page Not Found</h1>
+                        <div style="text-align: center; padding: 5rem 0;">
+                            <div style="font-size: 4.5rem; margin-bottom: 1.2rem;">🔍</div>
+                            <h2 style="color: #666; margin-bottom: 1.2rem;">Page not found</h2>
+                            <p style="color: #999; margin-bottom: 2.5rem;">The requested page could not be found</p>
+                            <button class="btn btn-primary" onclick="loadPage('home')">
+                                Return to Home
+                            </button>
+                        </div>
+                    </main>
+                    `;
+            }
+            
+            // 设置内容并执行后续初始化
+            contentDiv.innerHTML = html;
+            
+            // 初始化价格滑块
+            if (page === 'all-products') {
+                const priceSlider = document.getElementById('priceSlider');
+                const maxPrice = document.getElementById('maxPrice');
+                if (priceSlider && maxPrice) {
+                    priceSlider.addEventListener('input', function() {
+                        maxPrice.textContent = `₵${this.value}`;
+                    });
+                    
+                    // 筛选按钮事件
+                    const applyFiltersBtn = document.getElementById('applyFilters');
+                    if (applyFiltersBtn) {
+                        applyFiltersBtn.addEventListener('click', function() {
+                            // 收集选中的分类
+                            const selectedCategories = [];
+                            document.querySelectorAll('.filter-options input[type="checkbox"]:checked').forEach(checkbox => {
+                                selectedCategories.push(checkbox.id.replace('cat-', ''));
+                            });
+                            
+                            // 收集选中的状态
+                            const selectedCondition = document.querySelector('input[name="condition"]:checked')?.value || '';
+                            
+                            // 收集价格
+                            const maxPrice = document.getElementById('priceSlider').value;
+                            
+                            // 构建参数
+                            const params = {};
+                            if (selectedCategories.length > 0) {
+                                params.category = selectedCategories.join(',');
+                            }
+                            if (selectedCondition) {
+                                params.condition = selectedCondition;
+                            }
+                            if (maxPrice !== '1000') {
+                                params.price = maxPrice;
+                            }
+                            
+                            // 跳转到筛选后的页面
+                            loadPage('all-products', params);
+                        });
+                    }
+                    
+                    // 排序事件
+                    const sortSelect = document.getElementById('sortSelect');
+                    if (sortSelect) {
+                        sortSelect.addEventListener('change', function() {
+                            const value = this.value;
+                            let sortedProducts = [...allProducts];
+                            
+                            switch(value) {
+                                case 'price-asc':
+                                    sortedProducts.sort((a, b) => a.price - b.price);
+                                    break;
+                                case 'price-desc':
+                                    sortedProducts.sort((a, b) => b.price - a.price);
+                                    break;
+                                case 'name-asc':
+                                    sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+                                    break;
+                                case 'name-desc':
+                                    sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+                                    break;
+                            }
+                            
+                            // 更新产品网格
+                            const productsGrid = document.getElementById('productsGrid');
+                            if (productsGrid) {
+                                productsGrid.innerHTML = sortedProducts.map(product => `
+                                <div class="products-item">
+                                    <div class="products-image" style="background-image: url('${product.imageUrl}')">
+                                        <span class="products-badge">${product.condition.toUpperCase()}</span>
+                                        <div class="products-image-text">${product.imageText}</div>
+                                    </div>
+                                    <div class="products-info">
+                                        <div class="products-category">${product.category.replace('-', ' ')}</div>
+                                        <h3 class="products-title">${product.name}</h3>
+                                        <p class="products-description">${product.description}</p>
+                                        <div class="products-details">
+                                            <div class="products-price">₵${product.price}</div>
+                                            <div class="products-stock">
+                                                <span class="${product.stock > 10 ? 'stock-in' : product.stock > 0 ? 'stock-low' : 'stock-out'}">
+                                                    ${product.stock > 0 ? (product.stock > 10 ? 'In Stock' : 'Low Stock') : 'Out of Stock'}
+                                                </span>
+                                                <span class="stock-count">${product.stock} items available</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary btn-block" onclick="addToCart(${product.id}, event)" ${product.stock === 0 ? 'disabled' : ''}>
+                                            ${product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+                                        </button>
+                                        <button class="btn btn-secondary btn-block" style="margin-top: 0.6rem;" onclick="loadPage('product-detail', {id: ${product.id}})">
+                                            View Details
+                                        </button>
+                                    </div>
+                                </div>
+                                `).join('');
+                            }
+                        });
+                    }
+                }
+            }
+            
+            // 如果加载的是Contact页面，初始化折叠复选框组
+            if (page === 'contact') {
+                initCollapsibleCheckbox();
+            }
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+        
+        // 初始化折叠复选框组
+        function initCollapsibleCheckbox() {
+            // 折叠/展开功能
+            const collapsibleHeader = document.querySelector('.collapsible-header');
+            const collapsibleContent = document.getElementById('subjectCollapsible');
+            const collapsibleIcon = document.querySelector('.collapsible-icon');
+            
+            if (collapsibleHeader && collapsibleContent) {
+                // 初始状态：默认展开
+                collapsibleContent.classList.add('expanded');
+                collapsibleIcon.classList.add('expanded');
+                
+                collapsibleHeader.addEventListener('click', function() {
+                    collapsibleContent.classList.toggle('expanded');
+                    collapsibleIcon.classList.toggle('expanded');
+                });
+            }
+            
+            // 复选框选择功能
+            const checkboxes = document.querySelectorAll('input[name="subject"]');
+            const selectedTopicsContainer = document.getElementById('selectedTopicsContainer');
+            const selectedTopicsList = document.getElementById('selectedTopicsList');
+            
+            if (checkboxes && selectedTopicsContainer && selectedTopicsList) {
+                // 更新选中的主题显示
+                function updateSelectedTopics() {
+                    const selected = Array.from(checkboxes)
+                        .filter(cb => cb.checked)
+                        .map(cb => {
+                            const label = cb.nextElementSibling.textContent;
+                            return { value: cb.value, label };
+                        });
+                    
+                    if (selected.length > 0) {
+                        selectedTopicsContainer.style.display = 'block';
+                        selectedTopicsList.innerHTML = selected.map(topic => `
+                            <div class="topic-tag">
+                                ${topic.label}
+                                <span class="remove-topic" onclick="removeTopic('${topic.value}')">&times;</span>
+                            </div>
+                        `).join('');
+                    } else {
+                        selectedTopicsContainer.style.display = 'none';
+                    }
+                }
+                
+                // 为每个复选框添加事件监听
+                checkboxes.forEach(cb => {
+                    cb.addEventListener('change', updateSelectedTopics);
+                });
+                
+                // 初始更新
+                updateSelectedTopics();
+            }
+        }
+        
+        // 移除选中的主题
+        function removeTopic(value) {
+            const checkbox = document.querySelector(`input[name="subject"][value="${value}"]`);
+            if (checkbox) {
+                checkbox.checked = false;
+                
+                // 触发更新
+                const event = new Event('change');
+                checkbox.dispatchEvent(event);
+            }
+        }
+        
+        // 折叠/展开切换
+        function toggleCollapsible(id) {
+            const content = document.getElementById(id);
+            const icon = content.previousElementSibling.querySelector('.collapsible-icon');
+            
+            if (content && icon) {
+                content.classList.toggle('expanded');
+                icon.classList.toggle('expanded');
+            }
+        }
+        
+        // 更新购物车数量
+        function updateCartQuantity(productId, change) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex === -1) {
+                return;
+            }
+            
+            let newQuantity;
+            if (typeof change === 'number') {
+                newQuantity = cart[itemIndex].quantity + change;
+            } else {
+                newQuantity = parseInt(change);
+            }
+            
+            // 验证数量
+            if (newQuantity < 1) newQuantity = 1;
+            if (newQuantity > cart[itemIndex].stock) {
+                newQuantity = cart[itemIndex].stock;
+                alert('Cannot exceed available stock');
+            }
+            
+            cart[itemIndex].quantity = newQuantity;
+            saveCart();
+            
+            // 重新加载购物车页面
+            loadPage('cart');
+        }
+        
+        // 从购物车移除商品
+        function removeFromCart(productId) {
+            if (confirm('Are you sure you want to remove this item?')) {
+                cart = cart.filter(item => item.id !== productId);
+                saveCart();
+                loadPage('cart');
+            }
+        }
+        
+        // 清空购物车
+        function clearCart() {
+            if (confirm('Are you sure you want to clear your cart?')) {
+                cart = [];
+                saveCart();
+                loadPage('cart');
+            }
+        }
+        
+        // 处理结账
+        function proceedToCheckout() {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            alert(`Proceed to checkout with total: ₵${total}`);
+            // 在实际项目中，这里会跳转到结账页面
+        }
+        
+        // 处理URL哈希变化（支持页面刷新/直接访问）
+        function handleHashChange() {
+            const hash = window.location.hash.substring(1) || 'home';
+            const [page, paramsStr] = hash.split('?');
+            const params = {};
+            
+            // 解析参数
+            if (paramsStr) {
+                paramsStr.split('&').forEach(param => {
+                    const [key, value] = param.split('=');
+                    if (key && value) params[key] = decodeURIComponent(value);
+                });
+            }
+            
+            loadPage(page, params);
+        }
+        
+        // 提交询价表单
+        function submitInquiry(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('contactName').value;
+            const phone = document.getElementById('contactPhone').value;
+            const email = document.getElementById('contactEmail').value || 'Not provided';
+            const message = document.getElementById('contactMessage').value;
+            
+            // 获取选中的主题
+            const checkboxes = document.querySelectorAll('input[name="subject"]:checked');
+            const selectedSubjects = Array.from(checkboxes).map(cb => cb.value);
+            
+            if (selectedSubjects.length === 0) {
+                alert('Please select at least one subject for your inquiry.');
+                return false;
+            }
+            
+            console.log('Inquiry submitted:', { name, phone, email, subjects: selectedSubjects, message });
+            
+            alert('Thank you for your inquiry! We will contact you within 24 hours.');
+            
+            // 重置表单
+            event.target.reset();
+            
+            // 重置选中的主题显示
+            const selectedTopicsContainer = document.getElementById('selectedTopicsContainer');
+            const selectedTopicsList = document.getElementById('selectedTopicsList');
+            if (selectedTopicsContainer && selectedTopicsList) {
+                selectedTopicsContainer.style.display = 'none';
+                selectedTopicsList.innerHTML = '';
+            }
+            
+            // 取消选中所有复选框
+            document.querySelectorAll('input[name="subject"]').forEach(cb => {
+                cb.checked = false;
+            });
+            
+            return false;
+        }
+        
+        // 移除筛选条件
+        function removeFilter(filterType, value) {
+            const hash = window.location.hash.substring(1) || 'home';
+            const [page, paramsStr] = hash.split('?');
+            const params = {};
+            
+            // 解析参数
+            if (paramsStr) {
+                paramsStr.split('&').forEach(param => {
+                    const [key, val] = param.split('=');
+                    if (key && val) params[key] = decodeURIComponent(val);
+                });
+            }
+            
+            // 根据筛选类型移除参数
+            if (filterType === 'category') {
+                if (params.category) {
+                    const categories = params.category.split(',').filter(cat => cat !== value);
+                    if (categories.length > 0) {
+                        params.category = categories.join(',');
+                    } else {
+                        delete params.category;
+                    }
+                }
+            } else if (filterType === 'condition') {
+                delete params.condition;
+            } else if (filterType === 'price') {
+                delete params.price;
+            }
+            
+            // 重新加载页面
+            loadPage(page, params);
+        }
+        
+        // 清除所有筛选条件
+        function clearAllFilters() {
+            const hash = window.location.hash.substring(1) || 'home';
+            const [page] = hash.split('?');
+            loadPage(page, {});
+        }
+        
+        // 重置筛选条件
+        function resetFilters() {
+            clearAllFilters();
+        }
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化购物车计数
+            updateCartCount();
+            
+            // 处理初始哈希
+            handleHashChange();
+            
+            // 监听哈希变化
+            window.addEventListener('hashchange', handleHashChange);
+            
+            // 修复WhatsApp图标HTML错误
+            const whatsappFloat = document.querySelector('.whatsapp-float');
+            if (whatsappFloat) {
+                whatsappFloat.innerHTML = `
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="whatsapp-tooltip">Chat with us on WhatsApp: +233 20 941 2194</div>
+                `;
+            }
+            
+            // 搜索框回车事件
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        searchProducts();
+                    }
+                });
+            }
+            
+            // 修复购物车点击跳转问题 - 在导航栏的购物车图标
+            const cartIcons = document.querySelectorAll('.cart-icon');
+            if (cartIcons) {
+                cartIcons.forEach(icon => {
+                    icon.onclick = null;
+                    icon.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        loadPage('cart');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
