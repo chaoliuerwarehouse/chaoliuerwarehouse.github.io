@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaoliuer Store - Home</title>
+    
+    <!-- 添加EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <style>
         /* style.css - Chaoliuer Store 完整样式 */
         :root {
@@ -1471,6 +1475,11 @@
         </div>
     </footer>
     <script>
+        // 初始化EmailJS（使用您提供的Public Key）
+        (function() {
+            emailjs.init("7JF0u1ackkW4TbePP");
+        })();
+        
         // 购物车数据
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         
@@ -2818,7 +2827,6 @@
                                         <h5>Selected Topics:</h5>
                                         <div class="selected-topics-list" id="selectedTopicsList"></div>
                                     </div>
-                                    <div class="select-hint">Click the header above to expand/collapse the topic list</div>
                                 </div>
                                 
                                 <div class="form-group">
@@ -2826,6 +2834,7 @@
                                     <textarea id="contactMessage" class="form-control" placeholder="Your inquiry..." required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send Inquiry</button>
+                                <div id="formMessage" style="margin-top: 1rem; display: none;"></div>
                             </form>
                         </div>
                         
@@ -3377,10 +3386,11 @@
             loadPage(page, params);
         }
         
-        // 提交询价表单
+        // 提交询价表单（使用EmailJS）
         function submitInquiry(event) {
             event.preventDefault();
             
+            // 获取表单数据
             const name = document.getElementById('contactName').value;
             const phone = document.getElementById('contactPhone').value;
             const email = document.getElementById('contactEmail').value || 'Not provided';
@@ -3388,31 +3398,86 @@
             
             // 获取选中的主题
             const checkboxes = document.querySelectorAll('input[name="subject"]:checked');
-            const selectedSubjects = Array.from(checkboxes).map(cb => cb.value);
+            const selectedSubjects = Array.from(checkboxes).map(cb => {
+                const label = cb.nextElementSibling.textContent;
+                return label;
+            }).join(', ');
             
             if (selectedSubjects.length === 0) {
                 alert('Please select at least one subject for your inquiry.');
                 return false;
             }
             
-            console.log('Inquiry submitted:', { name, phone, email, subjects: selectedSubjects, message });
+            // 显示加载状态
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
             
-            alert('Thank you for your inquiry! We will contact you within 24 hours.');
+            // 获取消息显示区域
+            const formMessage = document.getElementById('formMessage');
             
-            // 重置表单
-            event.target.reset();
-            
-            // 重置选中的主题显示
-            const selectedTopicsContainer = document.getElementById('selectedTopicsContainer');
-            const selectedTopicsList = document.getElementById('selectedTopicsList');
-            if (selectedTopicsContainer && selectedTopicsList) {
-                selectedTopicsContainer.style.display = 'none';
-                selectedTopicsList.innerHTML = '';
-            }
-            
-            // 取消选中所有复选框
-            document.querySelectorAll('input[name="subject"]').forEach(cb => {
-                cb.checked = false;
+            // 使用EmailJS发送邮件（使用您提供的Service ID和Template ID）
+            emailjs.send(
+                "service_ncim1uo",  // 您的Service ID
+                "template_21n07rh",  // 您的Template ID
+                {
+                    to_email: "shiyumarry@gmail.com",
+                    from_name: name,
+                    from_phone: phone,
+                    from_email: email,
+                    subjects: selectedSubjects,
+                    message: message,
+                    date: new Date().toLocaleString(),
+                    store_name: "Chaoliuer Store"
+                }
+            )
+            .then(function(response) {
+                console.log('Email sent successfully:', response.status, response.text);
+                
+                // 显示成功消息
+                formMessage.innerHTML = '<div style="color: var(--green); padding: 10px; background-color: #f0fff0; border-radius: 4px;">✓ Thank you! Your inquiry has been sent successfully. We will contact you within 24 hours.</div>';
+                formMessage.style.display = 'block';
+                
+                // 重置表单
+                event.target.reset();
+                
+                // 重置选中的主题显示
+                const selectedTopicsContainer = document.getElementById('selectedTopicsContainer');
+                const selectedTopicsList = document.getElementById('selectedTopicsList');
+                if (selectedTopicsContainer && selectedTopicsList) {
+                    selectedTopicsContainer.style.display = 'none';
+                    selectedTopicsList.innerHTML = '';
+                }
+                
+                // 取消选中所有复选框
+                document.querySelectorAll('input[name="subject"]').forEach(cb => {
+                    cb.checked = false;
+                });
+                
+                // 重置按钮状态
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // 5秒后隐藏成功消息
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }, function(error) {
+                console.error('Email send failed:', error);
+                
+                // 显示错误消息
+                formMessage.innerHTML = `<div style="color: var(--red); padding: 10px; background-color: #fff0f0; border-radius: 4px;">✗ Sorry, there was an error sending your inquiry. Please contact us directly at +233 20 941 2194.</div>`;
+                formMessage.style.display = 'block';
+                
+                // 重置按钮状态
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // 5秒后隐藏错误消息
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
             });
             
             return false;
