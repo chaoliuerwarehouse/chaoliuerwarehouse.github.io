@@ -1,13 +1,14 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaoliuer Store - Home</title>
-    
-    <!-- 添加EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
     <style>
         /* style.css - Chaoliuer Store 完整样式 */
         :root {
@@ -1475,11 +1476,6 @@
         </div>
     </footer>
     <script>
-        // 初始化EmailJS（使用您提供的Public Key）
-        (function() {
-            emailjs.init("7JF0u1ackkW4TbePP");
-        })();
-        
         // 购物车数据
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         
@@ -1490,497 +1486,1197 @@
         const allProducts = [
             {
                 id: 1,
-                name: "African Print Dress",
+                name: "Casual Elegant Set",
                 category: "new-clothing",
-                price: 150,
-                stock: 10,
+                price: 300,
+                stock: 15,
                 condition: "new",
-                description: "Beautiful traditional African print dress for all occasions. Made from high-quality Ankara fabric with intricate patterns and comfortable fit.",
-                detailedDescription: "This stunning African print dress features vibrant colors and traditional patterns that celebrate Ghanaian culture. Made from 100% cotton Ankara fabric, it's breathable and comfortable for all-day wear. Perfect for weddings, festivals, or special occasions. The dress includes a matching headwrap and can be customized in different sizes.",
+                description: "Beautiful set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, breathable and comfortable for all-day wear, affordable, stylish, and perfectly suited to Ghana’s daily life and weather – a great addition to your wardrobe at a friendly price. Free shipping within Accra and Tema",
                 specs: {
-                    "Material": "100% Cotton Ankara",
-                    "Size": "M, L, XL",
-                    "Color": "Multi-color",
+                    "Material": "100% Cotton",
+                    "Size": "M, L",
+                    "Color": "Timeless white + khaki color match",
                     "Care": "Hand wash, line dry",
-                    "Origin": "Made in Ghana",
-                    "Weight": "0.8kg"
+                    "Origin": "Made in China",
+                    "Weight": "1kg"
                 },
                 imageColor: "#CE1126",
-                imageText: "DRESS",
-                imageUrl: "images/1.jpg"
+                imageText: "1  1-1-1",
+                imageUrl: "images/1  1-1-1.jpg"
             },
             {
                 id: 2,
-                name: "Men's Traditional Shirt",
+                name: "Casual Denim Set",
                 category: "new-clothing",
-                price: 80,
+                price: 249,
                 stock: 15,
                 condition: "new",
-                description: "Comfortable and stylish traditional shirt for men. Perfect for cultural events, weddings, or everyday wear.",
-                detailedDescription: "Elegant traditional shirt made from premium fabric with intricate embroidery. Perfect for cultural events, weddings, or everyday wear. Features a comfortable fit and traditional design elements.",
+                description: "Beautiful set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft, stretchy & breathable,  – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Free shipping within Accra and Tema",                
                 specs: {
                     "Material": "Cotton blend",
-                    "Size": "S, M, L, XL",
-                    "Color": "White with embroidery",
+                    "Size": "S, M",
+                    "Color": "Brown and blue denim jeans",
                     "Care": "Machine washable",
-                    "Origin": "Made in Ghana",
-                    "Weight": "0.5kg"
+                    "Origin": "Made in China",
+                    "Weight": "1kg"
                 },
                 imageColor: "#FCD116",
-                imageText: "SHIRT",
-                imageUrl: "images/2.jpg"
+                imageText: "1  1-1-2",
+                imageUrl: "images/1  1-1-2.jpg"
             },
             {
                 id: 3,
-                name: "Women's Blouse",
+                name: "Casual Comfort Set",
                 category: "new-clothing",
-                price: 65,
-                stock: 20,
+                price: 249,
+                stock: 15,
                 condition: "new",
-                description: "Elegant blouse for office or casual wear. Versatile design that transitions seamlessly from office to casual settings.",
-                detailedDescription: "Versatile women's blouse that transitions seamlessly from office to casual settings. Made from breathable fabric with a modern cut and traditional accents.",
+                description: "Casual set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft and lightweight fabric. The flowy, breathable fabric offers all-day comfort, while the slit adds a stylish touch. Great for casual days, errands, or lounging at home – perfect for Ghana’s weather at a affordable price. Free shipping within Accra and Tema.",                
                 specs: {
                     "Material": "Polyester-cotton blend",
-                    "Size": "XS, S, M, L",
-                    "Color": "Various colors available",
+                    "Size": "S, M, L",
+                    "Color": "Black and White",
                     "Care": "Machine wash cold",
-                    "Origin": "Made in Ghana",
-                    "Weight": "0.4kg"
+                    "Origin": "Made in China",
+                    "Weight": "1kg"
                 },
                 imageColor: "#006B3F",
-                imageText: "BLOUSE",
-                imageUrl: "https://picsum.photos/id/21/800/600"
+                imageText: "1  1-1-3",
+                imageUrl: "images/1  1-1-3.jpg"
             },
             {
                 id: 4,
-                name: "Children's Traditional Wear",
+                name: "Sweet Outfit",
                 category: "new-clothing",
-                price: 45,
-                stock: 25,
+                price: 249,
+                stock: 15,
                 condition: "new",
-                description: "Colorful traditional outfits for children. Perfect for cultural celebrations, weddings, or family events.",
-                detailedDescription: "Adorable traditional outfits for children, perfect for cultural celebrations, weddings, or family events. Made from soft, child-friendly fabrics with vibrant prints.",
+                description: "Sweet set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "The lightweight, breathable fabric keeps you cool in Ghana’s warm climate, flowy and soft fabric- ideal for parties, dates, or casual outing at a affordable price. Free shipping within Accra and Tema.",                
                 specs: {
-                    "Material": "Soft cotton",
-                    "Size": "2-4 years, 5-7 years, 8-10 years",
-                    "Color": "Bright traditional patterns",
+                    "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L, XL",
+                    "Color": "Blue and White",
                     "Care": "Machine wash gentle",
-                    "Origin": "Made in Ghana",
-                    "Weight": "0.3kg"
+                    "Origin": "Made in China",
+                    "Weight": "1kg"
                 },
                 imageColor: "#CE1126",
-                imageText: "KIDS",
-                imageUrl: "https://picsum.photos/id/1025/800/600"
+                imageText: "1  1-1-4",
+                imageUrl: "images/1  1-1-4.jpg"
             },
             {
                 id: 5,
-                name: "Used Jeans",
-                category: "used-clothing",
-                price: 40,
-                stock: 8,
-                condition: "used",
-                description: "Good condition used jeans in various sizes. Quality pre-owned jeans, inspected and cleaned.",
-                detailedDescription: "Quality pre-owned jeans in good condition. Each pair is inspected, cleaned, and ready to wear. Great value for everyday casual wear.",
+                name: "Casual Comfort Set",
+                category: "new-clothing",
+                price: 249,
+                stock: 15,
+                condition: "new",
+                description: "Casual set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft and lightweight fabric. The flowy, breathable fabric offers all-day comfort, while the slit adds a stylish touch. Great for casual days, errands, or lounging at home – perfect for Ghana’s weather at a affordable price. Free shipping within Accra and Tema.",                
                 specs: {
-                    "Material": "Denim",
-                    "Size": "Various sizes available",
-                    "Condition": "Good - minor wear",
-                    "Color": "Blue, Black",
+                    "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L",
+                    "Color": "Green and White",
+                    "Origin": "Made in China",
                     "Care": "Machine wash",
-                    "Weight": "0.6kg"
+                    "Weight": "1kg"
                 },
                 imageColor: "#1E90FF",
-                imageText: "JEANS",
-                imageUrl: "https://picsum.photos/id/21/800/600"
+                imageText: "1  1-1-5",
+                imageUrl: "images/1  1-1-5.jpg"
             },
             {
                 id: 6,
-                name: "Used T-Shirts",
-                category: "used-clothing",
-                price: 25,
-                stock: 20,
-                condition: "used",
-                description: "Comfortable used t-shirts in various styles and colors. Great value for casual wear.",
-                detailedDescription: "Collection of pre-owned t-shirts in good condition. Various styles, colors and sizes available. Perfect for everyday casual wear.",
+                name: "Casual Denim Set",
+                category: "new-clothing",
+                price: 269,
+                stock: 15,
+                condition: "new",
+                description: "Casual set for any occasions. Made from high-quality fabric. Great value for casual wear.",
+                detailedDescription: "2-piece outfit, made of lightweight, breathable cotton fabric that keeps you cool in Ghana’s warm climate, durable denim fabric with a relaxed fit, offering all-day comfort for casual outings, beach trips, or weekend activities. Free shipping within Accra and Tema.",               
                 specs: {
                     "Material": "Cotton",
-                    "Size": "S, M, L, XL",
-                    "Condition": "Good condition",
-                    "Color": "Various colors",
+                    "Size": "S, M, L",
+                    "Origin": "Made in China",
+                    "Color": "White and blue jeans",
                     "Care": "Machine wash",
-                    "Weight": "0.2kg"
+                    "Weight": "1kg"
                 },
                 imageColor: "#FCD116",
-                imageText: "T-SHIRTS",
-                imageUrl: "https://picsum.photos/id/1082/800/600"
+                imageText: "1  1-2-1",
+                imageUrl: "images/1  1-2-1.jpg"
             },
             {
                 id: 7,
-                name: "Leather Shoes",
-                category: "new-shoes",
-                price: 120,
-                stock: 12,
-                condition: "new",
-                description: "High-quality leather shoes for formal occasions. Handcrafted by local artisans.",
-                detailedDescription: "Premium leather shoes handcrafted by local artisans. These shoes combine traditional Ghanaian craftsmanship with modern comfort features. Perfect for formal events, weddings, or office wear.",
+                name: "Lavender Floral Outfit",
+                category: "used-clothing",
+                price: 100,
+                stock: 15,
+                condition: "used",
+                description: "Casual set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, lightweight, breathable chiffon fabric & soft knit skirt. Skin-friendly, keeps you cool in hot weather. V-neck & ruffle hem design modifies the figure. Straight skirt with cute shoe pattern detail, hides flaws and suits various body types. Convenient for daily wear, dates, and outings. Contact us for shipping cost and time estimate.",                
                 specs: {
-                    "Material": "Genuine leather",
-                    "Size": "UK 6-12",
-                    "Color": "Black, Brown",
-                    "Care": "Use leather conditioner",
-                    "Origin": "Handmade in Ghana",
-                    "Weight": "1.2kg"
+                    "Material": "100% Polyester",
+                    "Size": "S, M, L, XL",
+                    "Color": "Off-white floral top and light purple skirt ",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China",
+                    "Weight": "1kg"
                 },
                 imageColor: "#8B4513",
-                imageText: "LEATHER",
-                imageUrl: "https://picsum.photos/id/103/800/600"
+                imageText: "1  1-2-2",
+                imageUrl: "images/1  1-2-2.jpg"
             },
             {
                 id: 8,
-                name: "Sports Sneakers",
-                category: "new-shoes",
-                price: 90,
-                stock: 18,
-                condition: "new",
-                description: "Comfortable sports sneakers for active lifestyle. High-performance with cushioned soles.",
-                detailedDescription: "High-performance sports sneakers with cushioned soles and breathable mesh uppers. Designed for comfort during workouts, running, or casual wear.",
+                name: "Women's Pink & White Lace",
+                category: "used-clothing",
+                price: 89,
+                stock: 15,
+                condition: "used",
+                description: "Sweet set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "Light pink V-neck short-sleeve top, delicate white lace trim at neckline and cuffs, button placket, vertical stripe texture, cropped fit, High-waisted white pleated skirt, asymmetrical double-button design, structured fabric, mini length, A-line silhouette, convenient for daily wear, dates, and outings. Contact us for shipping cost and time estimate.",                
                 specs: {
-                    "Material": "Mesh and synthetic",
-                    "Size": "UK 5-11",
-                    "Color": "White, Black, Blue",
-                    "Care": "Wipe clean with damp cloth",
-                    "Origin": "Imported",
-                    "Weight": "0.8kg"
+                    "Material": "100% Polyester and blend",
+                    "Size": "S, M",
+                    "Color": "White and pink",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China",
+                    "Weight": "1kg"
                 },
                 imageColor: "#1E90FF",
-                imageText: "SNEAKERS",
-                imageUrl: "https://picsum.photos/id/1060/800/600"
+                imageText: "1  1-2-3",
+                imageUrl: "images/1  1-2-3.jpg"
             },
             {
                 id: 9,
-                name: "Traditional Sandals",
-                category: "new-shoes",
-                price: 50,
-                stock: 22,
-                condition: "new",
-                description: "Traditional African sandals with leather straps. Handcrafted from genuine leather.",
-                detailedDescription: "Handcrafted traditional sandals made from genuine leather with comfortable footbed. Perfect for warm weather and cultural events.",
+                name: "Casual Denim Set",
+                category: "used-clothing",
+                price: 139,
+                stock: 12,
+                condition: "used",
+                description: "Beautiful set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft, stretchy & breathable,  – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate",
                 specs: {
-                    "Material": "Genuine leather",
-                    "Size": "S, M, L (adjustable)",
-                    "Color": "Brown, Black",
-                    "Care": "Clean with leather conditioner",
-                    "Origin": "Handmade in Ghana",
-                    "Weight": "0.5kg"
+                    "Material": "Cotton blend",
+                    "Size": "S, M, L",
+                    "Color": "Brown and Blue",
+                    "Care": "Machine washable",
+                    "Origin": "Made in China",
+                    "Weight": "1kg"
                 },
                 imageColor: "#8B4513",
-                imageText: "SANDALS",
-                imageUrl: "https://picsum.photos/id/1062/800/600"
+                imageText: "1  1-2-4",
+                imageUrl: "images/1  1-2-4.jpg"
             },
             {
                 id: 10,
-                name: "Used Running Shoes",
-                category: "used-shoes",
-                price: 35,
+                name: "Casual Denim Set",
+                category: "used-clothing",
+                price: 69,
                 stock: 15,
                 condition: "used",
-                description: "Good condition used running shoes. Comfortable and still have plenty of life.",
-                detailedDescription: "Pre-owned running shoes in good condition. Great for everyday use, workouts, or casual wear. All shoes are cleaned and inspected.",
+                description: "Beautiful set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, lightweight chiffon-like fabric, loose fit, soft in good condition. Great for everyday use, workouts, or casual wear. Contact us for shipping cost and time estimate.",
                 specs: {
-                    "Material": "Mesh and synthetic",
-                    "Size": "UK 6-11",
-                    "Condition": "Good - moderate wear",
-                    "Color": "Various",
-                    "Care": "Wipe clean",
-                    "Weight": "0.7kg"
+                    "Material": "100% Polyester",
+                    "Size": "S, M",
+                    "Origin": "Made in China",
+                    "Color": "Print and Dark Blue",
+                    "Care": "Machine washable or handwash",
+                    "Weight": "1kg"
                 },
                 imageColor: "#808080",
-                imageText: "RUNNING",
-                imageUrl: "https://picsum.photos/id/1060/800/600"
+                imageText: "1  1-2-5",
+                imageUrl: "images/1  1-2-5.jpg"
             },
             {
                 id: 11,
-                name: "Leather Handbag",
-                category: "new-bags",
-                price: 90,
-                stock: 7,
-                condition: "new",
-                description: "Genuine leather handbag with multiple compartments. Stylish and practical for everyday use.",
-                detailedDescription: "Stylish and practical leather handbag made from premium materials. Features multiple compartments for organization, secure zipper closure, and adjustable shoulder strap.",
+                name: "Women's Denim Shirt Dress",
+                category: "used-clothing",
+                price: 79,
+                stock: 12,
+                condition: "used",
+                description: "Young and casual dress for any occasions. Made from high-quality fabric.",
+                detailedDescription: "White & light blue denim color-block shirt dress, pointed collar, half-button placket, drawstring puff sleeves, chest patch pocket with small label, side seam pockets, loose shift silhouette, above-knee length. Contact us for shipping cost and time estimate. ",
                 specs: {
-                    "Material": "Genuine leather",
-                    "Dimensions": "30x20x10cm",
-                    "Color": "Brown, Black",
-                    "Compartments": "3 main + 2 inner pockets",
-                    "Origin": "Handmade in Ghana",
-                    "Weight": "0.7kg"
+                    "Material": "70% Cotton and 30% Polyester",
+                    "Size": "S, M, L, XL, XL, XXL",
+                    "Color": "Blue Denim",
+                    "Care": "Machine washable or handwash",
+                    "Origin": "Made in China",
+                    "Weight": "1kg"
                 },
                 imageColor: "#8B4513",
-                imageText: "HANDBAG",
-                imageUrl: "https://picsum.photos/id/26/800/600"
+                imageText: "1  1-3-1",
+                imageUrl: "images/1  1-3-1.jpg"
             },
             {
                 id: 12,
-                name: "Used Backpack",
-                category: "used-bags",
-                price: 25,
+                name: "Women's Slip Dress",
+                category: "used-clothing",
+                price: 59,
                 stock: 12,
                 condition: "used",
-                description: "Used backpack in good condition. Perfect for school or casual use.",
-                detailedDescription: "Pre-owned backpack with multiple compartments. Great condition, clean and ready to use.",
+                description: "Good dress for any formal and daily occasions. Made from high-quality fabric.",
+                detailedDescription: "Black slip dress with thin spaghetti straps, V-neckline, side ruched detail, front slit, midi length, form-fitting silhouette to highlight curves. Contact us for shipping cost and time estimate",
                 specs: {
-                    "Material": "Nylon",
-                    "Capacity": "20L",
-                    "Condition": "Good condition",
-                    "Color": "Black, Blue",
-                    "Compartments": "Main + 2 side pockets",
-                    "Weight": "0.5kg"
+                    "Material": "95% Cotton and 5% Spandex",
+                    "Size": "S, M, L",
+                    "Care": "Machine washable",
+                    "Color": "Black",
+                    "Origin": "Made in China",
+                    "Weight": "1kg"
                 },
                 imageColor: "#333333",
-                imageText: "BACKPACK",
-                imageUrl: "https://picsum.photos/id/27/800/600"
+                imageText: "1  1-3-2",
+                imageUrl: "images/1  1-3-2.jpg"
             },
             {
                 id: 13,
-                name: "Gold Necklace",
-                category: "new-jewelry",
-                price: 80,
-                stock: 30,
-                condition: "new",
-                description: "Elegant gold-plated necklace with traditional design. Perfect for special occasions.",
-                detailedDescription: "Beautiful gold-plated necklace featuring traditional Ghanaian design elements. Comes with secure clasp and presentation box.",
+                name: "Women's Set",
+                category: "used-clothing",
+                price: 189,
+                stock: 12,
+                condition: "used",
+                description: "Good set for any occasions. Made from high-quality fabric",
+                detailedDescription: "3-piece outfit, cream V-neck long-sleeve knit top, contrast lace trim at neckline, diamond pattern on sleeves, ruffled cuffs, loose fit, soft knit texture. Contact us for shipping cost and time estimate",
                 specs: {
-                    "Material": "Gold-plated brass",
-                    "Length": "45cm (adjustable)",
-                    "Closure": "Secure lobster clasp",
-                    "Design": "Traditional Ghanaian",
-                    "Weight": "15g"
+                    "Material": "100% Acrylic",
+                    "Size": "S, M, L",
+                    "Care": "handwash",
+                    "Origin": "Made in Korea",
+                    "Weight": "1.5kg"
                 },
                 imageColor: "#FFD700",
-                imageText: "NECKLACE",
-                imageUrl: "https://picsum.photos/id/28/800/600"
+                imageText: "1  1-3-3",
+                imageUrl: "images/1  1-3-3.jpg"
             },
             {
                 id: 14,
-                name: "Used Silver Earrings",
-                category: "used-jewelry",
-                price: 15,
-                stock: 25,
-                condition: "used",
-                description: "Silver earrings in good condition. Classic design for everyday wear.",
-                detailedDescription: "Pre-owned silver earrings in classic design. Cleaned and polished.",
+                name: "Women's Blazer Set",
+                category: "new-clothing",
+                price: 350,
+                stock: 15,
+                condition: "new",
+                description: "Good set for formal occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, long sleeves with white ruffle cuffs, structured fabric, tailored fit,  polished finish, great for formal and casual days. Free shipping whithin Accra and Tema.",
                 specs: {
-                    "Material": "Silver-plated",
-                    "Style": "Stud earrings",
-                    "Condition": "Good condition",
-                    "Weight": "5g"
+                    "Material": "Polyester blend",
+                    "Size": "S, M, L",
+                    "Care": "Machine washable and handwash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
                 },
                 imageColor: "#C0C0C0",
-                imageText: "EARRINGS",
-                imageUrl: "https://picsum.photos/id/29/800/600"
+                imageText: "1  1-3-4",
+                imageUrl: "images/1  1-3-4.jpg"
             },
             {
                 id: 15,
-                name: "Kitchen Blender",
-                category: "new-appliances",
-                price: 80,
-                stock: 20,
-                condition: "new",
-                description: "Powerful kitchen blender for smoothies and food prep. High-performance with 800W motor.",
-                detailedDescription: "High-performance kitchen blender with 800W motor, perfect for making smoothies, soups, sauces, and more. Includes multiple speed settings and durable glass jar.",
+                name: "Casual Denim Set",
+                category: "used-clothing",
+                price: 100,
+                stock: 12,
+                condition: "used",
+                description: "Good set for casual and daily occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
                 specs: {
-                    "Power": "800W",
-                    "Capacity": "1.5L glass jar",
-                    "Speed Settings": "5 + pulse function",
-                    "Material": "Stainless steel blades",
-                    "Warranty": "1 year",
-                    "Weight": "3.5kg"
+                   "Material": "cotton",
+                    "Size": "S, M, L",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
                 },
                 imageColor: "#808080",
-                imageText: "KITCHEN",
-                imageUrl: "https://picsum.photos/id/42/800/600"
+                imageText: "1  1-3-5",
+                imageUrl: "images/1  1-3-5.jpg"
             },
             {
                 id: 16,
-                name: "Cleaning Supplies Set",
-                category: "new-appliances",
-                price: 30,
-                stock: 50,
-                condition: "new",
-                description: "Complete cleaning supplies set for household cleaning. Includes all essential cleaning tools.",
-                detailedDescription: "Complete cleaning kit with all essential tools for household cleaning. Includes broom, mop, dustpan, brush, and cleaning cloths. Everything you need for maintaining a clean home.",
+                name: "Casual Denim Set",
+                category: "used-clothing",
+                price: 139,
+                stock: 12,
+                condition: "used",
+                description: "Good set for casual and daily occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate",
                 specs: {
-                    "Contents": "Broom, mop, dustpan, brush, cloths",
-                    "Material": "Plastic and microfiber",
-                    "Storage": "Comes with storage rack",
-                    "Suitable for": "All floor types",
-                    "Weight": "2.5kg"
+                    "Material": "cotton",
+                    "Size": "S, M, L",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
                 },
                 imageColor: "#32CD32",
-                imageText: "CLEANING",
-                imageUrl: "https://picsum.photos/id/1048/800/600"
+                imageText: "2  1-1-1",
+                imageUrl: "images/2  1-1-1.jpg"
             },
             {
                 id: 17,
-                name: "Electric Kettle",
-                category: "used-appliances",
-                price: 35,
-                stock: 8,
-                condition: "used",
-                description: "Used electric kettle in working condition. Fast boiling with auto shut-off.",
-                detailedDescription: "Pre-owned electric kettle in good working condition. Tested and cleaned.",
+                name: "Casual Denim Set",
+                category: "new-clothing",
+                price: 249,
+                stock: 12,
+                condition: "new",
+                description: "Good set for casual and daily occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Free shipping within Accra and Tema.",
                 specs: {
-                    "Capacity": "1.5L",
-                    "Condition": "Good working condition",
-                    "Features": "Auto shut-off",
-                    "Weight": "1.0kg"
+                    "Material": "cotton",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
                 },
                 imageColor: "#C0C0C0",
-                imageText: "KETTLE",
-                imageUrl: "https://picsum.photos/id/180/800/600"
+                imageText: "2  1-1-2",
+                imageUrl: "images/2  1-1-2.jpg"
             },
             {
                 id: 18,
-                name: "Wireless Earbuds",
-                category: "new-electronics",
-                price: 150,
-                stock: 30,
+                name: "Women's Cropped Blazer Jeans Set",
+                category: "new-clothing",
+                price: 400,
+                stock: 15,
                 condition: "new",
-                description: "High-quality wireless earbuds with noise cancellation. 20-hour battery life and water resistance.",
-                detailedDescription: "Premium wireless earbuds with active noise cancellation, 20-hour battery life, and water resistance. Perfect for music, calls, and workouts.",
+                description: "Good set for casual and formal occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, long sleeves, structured woven fabric, tailored fit versatile cut, perfect for casual and formal occasions. Free shipping within Accra and Tema ",
                 specs: {
-                    "Battery Life": "20 hours with case",
-                    "Charging": "USB-C, wireless charging",
-                    "Connectivity": "Bluetooth 5.2",
-                    "Water Resistance": "IPX5",
-                    "Warranty": "1 year",
-                    "Weight": "50g"
+                    "Material": "Polyester blend",
+                    "Size": "S, M, L",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1.5kg"
                 },
                 imageColor: "#000000",
-                imageText: "EARBUDS",
-                imageUrl: "https://picsum.photos/id/96/800/600"
+                imageText: "2  1-1-3",
+                imageUrl: "images/2  1-1-3.jpg"
             },
             {
                 id: 19,
-                name: "Power Bank",
-                category: "new-electronics",
-                price: 70,
-                stock: 40,
-                condition: "new",
-                description: "High capacity power bank for charging devices on the go. Fast charging technology.",
-                detailedDescription: "High capacity power bank with fast charging technology. Can charge multiple devices simultaneously and is perfect for travel or daily use.",
+                name: "Women's Long Skirt Set",
+                category: "used-clothing",
+                price: 69,
+                stock: 12,
+                condition: "used",
+                description: "Good set for casual and formal occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, light grey cropped knit cardigan, round neckline, long sleeves, ribbed hem, detachable striped bow tie accessory, soft knit texture, relaxed fit, dark grey high-waisted midi skirt, double pleat detail, front slit, structured fabric, below-knee length, side pocket accents. Contact us for shipping cost and time estimate.",
                 specs: {
-                    "Capacity": "20000mAh",
-                    "Output": "2 USB ports + USB-C",
-                    "Input": "USB-C fast charging",
-                    "Weight": "350g",
-                    "Dimensions": "15x7x2cm"
+                    "Material": "100% Acrylic and Polyester blend",
+                    "Size": "S, M, L",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
                 },
                 imageColor: "#333333",
-                imageText: "POWER",
-                imageUrl: "https://picsum.photos/id/1074/800/600"
+                imageText: "2  1-1-4",
+                imageUrl: "images/2  1-1-4.jpg"
             },
             {
                 id: 20,
-                name: "Used Smartphone",
-                category: "used-electronics",
-                price: 250,
-                stock: 5,
-                condition: "used",
-                description: "Used smartphone in good condition. Fully tested and reset.",
-                detailedDescription: "Pre-owned smartphone in good working condition. Factory reset and tested.",
+                name: "Women's Top & Skirt Set",
+                category: "new-clothing",
+                price: 259,
+                stock: 15,
+                condition: "new",
+                description: "Good set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "White square-neck long-sleeve top, puff shoulder design, chest bow tie detail, side drawstring ruches, form-fitting stretch fabric, cropped fit, Light brown high-waisted ribbed knit midi skirt, front button placket, vertical slit, soft stretchy knit texture, ankle-length silhouette. Free shipping whithin Accra and Tema",
                 specs: {
-                    "Screen": "6.2 inch",
-                    "Storage": "64GB",
-                    "Condition": "Good - minor scratches",
-                    "Battery": "80% capacity",
-                    "Weight": "170g"
+                    "Material": "95% Cotton and 5% Spandex",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
                 },
                 imageColor: "#000000",
-                imageText: "PHONE",
-                imageUrl: "https://picsum.photos/id/160/800/600"
+                imageText: "2  1-1-5",
+                imageUrl: "images/2  1-1-5.jpg"
             },
             {
                 id: 21,
-                name: "Wooden Dining Table",
-                category: "new-furniture",
-                price: 350,
-                stock: 3,
-                condition: "new",
-                description: "Beautiful wooden dining table. Solid construction with traditional design.",
-                detailedDescription: "Handcrafted wooden dining table made from sustainable wood. Features traditional Ghanaian design elements and durable finish.",
+                name: "Women's Dress",
+                category: "used-clothing",
+                price: 199,
+                stock: 12,
+                condition: "used",
+                description: "Good dress for any occasions. Made from high-quality fabric.",
+                detailedDescription: "Black & white horizontal striped dress, white polo collar, short puff sleeves with cuffed trim, side drawstring ruches, A-line mini silhouette, stretchy knit fabric. Contact us for shipping cost and time estimate",
                 specs: {
-                    "Material": "Solid wood",
-                    "Dimensions": "180x90x75cm",
-                    "Seating Capacity": "6-8 people",
-                    "Finish": "Natural wood finish",
-                    "Weight": "45kg"
+                    "Material": "95% Cotton and 5% Spandex",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
                 },
                 imageColor: "#8B4513",
-                imageText: "TABLE",
-                imageUrl: "https://picsum.photos/id/165/800/600"
+                imageText: "2  1-2-1",
+                imageUrl: "images/2  1-2-1.jpg"
             },
             {
                 id: 22,
-                name: "Used Sofa Set",
-                category: "used-furniture",
-                price: 200,
-                stock: 2,
+                name: "Women's Dress",
+                category: "used-clothing",
+                price: 199,
+                stock: 12,
                 condition: "used",
-                description: "Used sofa set in good condition. Comfortable and clean.",
-                detailedDescription: "Pre-owned sofa set with 3 seats. Cleaned and in good condition.",
+                description: "Good dress for any occasions. Made from high-quality fabric.",
+                detailedDescription: "Fake two-piece design: white sheer puff sleeve base + black U-neck vest overlay, small black bow accents at shoulders, loose shift silhouette, mini length. Contact us for shipping cost and time estimate",
                 specs: {
-                    "Material": "Fabric",
-                    "Dimensions": "200x90x80cm",
-                    "Seating": "3 seats",
-                    "Condition": "Good - cleaned",
-                    "Weight": "60kg"
+                   "Material": "100% Polyester",
+                    "Size": "S, M, L, XL, XXL, XXXL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
                 },
                 imageColor: "#8B4513",
-                imageText: "SOFA",
-                imageUrl: "https://picsum.photos/id/166/800/600"
+                imageText: "2  1-2-2",
+                imageUrl: "images/2  1-2-2.jpg"
             },
             {
                 id: 23,
-                name: "Decorative Cushion",
-                category: "new-home",
-                price: 35,
-                stock: 50,
-                condition: "new",
-                description: "Comfortable decorative cushion with traditional patterns. Features traditional Ghanaian Adinkra symbols.",
-                detailedDescription: "Beautiful decorative cushion featuring traditional Ghanaian Adinkra symbols. Made from soft cotton with removable cover for easy cleaning.",
+                name: "Casual Denim Set",
+                category: "used-clothing",
+                price: 100,
+                stock: 12,
+                condition: "used",
+                description: "Good set for casual and daily occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
                 specs: {
-                    "Material": "Cotton cover, polyester filling",
-                    "Size": "45x45cm",
-                    "Design": "Traditional Adinkra symbols",
-                    "Care": "Machine washable cover",
-                    "Origin": "Made in Ghana",
-                    "Weight": "0.4kg"
+                   "Material": "cotton",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
                 },
                 imageColor: "#FCD116",
-                imageText: "CUSHION",
-                imageUrl: "https://picsum.photos/id/164/800/600"
+                imageText: "2  1-2-3",
+                imageUrl: "images/2  1-2-3.jpg"
             },
             {
                 id: 24,
-                name: "Table Lamp",
-                category: "new-home",
-                price: 55,
-                stock: 20,
-                condition: "new",
-                description: "Modern table lamp with adjustable brightness. Perfect for bedside or desk use.",
-                detailedDescription: "Modern table lamp with adjustable brightness settings and energy-efficient LED bulb. Features a stylish design that complements any home decor.",
+                name: "Casual Comfort Set",
+                category: "used-clothing",
+                price: 159,
+                stock: 12,
+                condition: "used",
+                description: "Casual set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft and lightweight fabric. The flowy, breathable fabric offers all-day comfort, while the slit adds a stylish touch. Great for casual days, errands, or lounging at home – perfect for Ghana’s weather at a affordable price. Contact us for shipping cost and time estimate.",
                 specs: {
-                    "Power": "9W LED",
-                    "Brightness": "Adjustable 3 levels",
-                    "Material": "Metal and fabric",
-                    "Height": "40cm",
-                    "Weight": "1.2kg"
+                   "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L, XL, XXL, XXXL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1.5kg"
                 },
                 imageColor: "#DAA520",
-                imageText: "LAMP",
-                imageUrl: "https://picsum.photos/id/1058/800/600"
-            }
+                imageText: "2  1-2-4",
+                imageUrl: "images/2  1-2-4.jpg"
+            },   
+            {
+                id: 25,
+                name: "Casual Comfort Set",
+                category: "used-clothing",
+                price: 189,
+                stock: 12,
+                condition: "used",
+                description: "Casual set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft and lightweight fabric. The flowy, breathable fabric offers all-day comfort, while the slit adds a stylish touch. Great for casual days, errands, or lounging at home – perfect for Ghana’s weather at a affordable price. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L, XL, XXL, XXXL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1.5kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-2-5",
+                imageUrl: "images/2  1-2-5.jpg"
+            },
+            {
+                id: 26,
+                name: "Women's Cropped Jeans Set",
+                category: "new-clothing",
+                price: 300,
+                stock: 12,
+                condition: "new",
+                description: "Good set for casual and formal occasions. Made from high-quality fabric.",
+                detailedDescription: " 2-piece outfit, long sleeves, structured woven fabric, tailored fit versatile cut, perfect for casual and formal occasions. Free shipping within Accra and Tema.",
+                specs: {
+                   "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1.5kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-3-1",
+                imageUrl: "images/2  1-3-1.jpg"
+            },            
+            {
+                id: 27,
+                name: "Casual Sweet Outfit",
+                category: "new-clothing",
+                price: 229,
+                stock: 12,
+                condition: "new",
+                description: "Casual sweet set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, the lightweight, breathable fabric keeps you cool in Ghana’s warm climate, flowy and soft fabric- ideal for parties, dates, or casual outing at a affordable price. Free shipping within Accra and Tema.",
+                specs: {
+                   "Material": "Polyester blend",
+                    "Size": "S, M, L, XL, XXL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-3-2",
+                imageUrl: "images/2  1-3-2.jpg"
+            },
+            {
+                id: 28,
+                name: "Casual Denim Set",
+                category: "used-clothing",
+                price: 189,
+                stock: 12,
+                condition: "used",
+                description: "Casual set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1.5kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-3-3",
+                imageUrl: "images/2  1-3-3.jpg"
+            },
+            {
+                id: 29,
+                name: "Casual Denim Set",
+                category: "used-clothing",
+                price: 169,
+                stock: 12,
+                condition: "used",
+                description: "Casual set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft and lightweight fabric. The flowy, breathable fabric offers all-day comfort, while the slit adds a stylish touch. Great for casual days, errands, or lounging at home. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L, XL, XXL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1.5kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-3-4",
+                imageUrl: "images/2  1-3-4.jpg"
+            },
+            {
+                id: 30,
+                name: "Women's Dress",
+                category: "new-clothing",
+                price: 229,
+                stock: 12,
+                condition: "new",
+                description: "Good dress for any occasions. Made from high-quality fabric.",
+                detailedDescription: " Black & white contrast + sweetheart neckline + puff sleeves, creates a sophisticated, alluring look, perfect for date nights, parties, and formal events. Free shipping within Accra and Tema.",
+                specs: {
+                   "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-3-5",
+                imageUrl: "images/2  1-3-5.jpg"
+            },
+            {
+                id: 31,
+                name: "Sun Protection Jacket Set",
+                category: "used-clothing",
+                price: 300,
+                stock: 12,
+                condition: "used",
+                description: "Casual set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft and lightweight fabric. The flowy, breathable fabric offers all-day comfort, while the slit adds a stylish touch. Great for casual days, errands, or lounging at home. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "100% Nylon",
+                    "Size": "S, M, L, XL, XXL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-4-1",
+                imageUrl: "images/2  1-4-1.jpg"
+            },
+            {
+                id: 32,
+                name: "Casual Denim Set",
+                category: "used-clothing",
+                price: 119,
+                stock: 12,
+                condition: "used",
+                description: "Casual set for any occasions. Made from high-quality fabric.",
+                detailedDescription: "2-piece outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-4-2",
+                imageUrl: "images/2  1-4-2.jpg"
+            },
+            {
+                id: 33,
+                name: "Casual Denim Set",
+                category: "used-clothing",
+                price: 139,
+                stock: 12,
+                condition: "used",
+                description: "Good set for casual and daily occasions. Made from high-quality fabric.",
+                detailedDescription: " 2-piece outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester-cotton blend",
+                    "Size": "S, M, L",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-4-3",
+                imageUrl: "images/2  1-4-3.jpg"
+            },
+            {
+                id: 34,
+                name: "Tops Bundle",
+                category: "used-clothing",
+                price: 100,
+                stock: 12,
+                condition: "used",
+                description: "High value bundle: cost-effective option for resellers; can split or sell as a set.",
+                detailedDescription: " 5 pieces outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester, cotton, blend",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-4-4",
+                imageUrl: "images/2  1-4-4.jpg"
+            },
+            {
+                id: 35,
+                name: "Tops Bundle",
+                category: "used-clothing",
+                price: 125,
+                stock: 12,
+                condition: "used",
+                description: "High value bundle: cost-effective option for resellers; can split or sell as a set.",
+                detailedDescription: " 5 pieces outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester, cotton, blend",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-4-5",
+                imageUrl: "images/2  1-4-5.jpg"
+            },
+            {
+                id: 36,
+                name: "Tops Bundle",
+                category: "new-clothing",
+                price: 300,
+                stock: 12,
+                condition: "new",
+                description: "High value bundle: cost-effective option for resellers; can split or sell as a set.",
+                detailedDescription: " 5 pieces outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester, cotton, blend",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-5-1",
+                imageUrl: "images/2  1-5-1.jpg"
+            },
+            {
+                id: 37,
+                name: "Tops Bundle",
+                category: "new-clothing",
+                price: 400,
+                stock: 12,
+                condition: "new",
+                description: "High value bundle: cost-effective option for resellers; can split or sell as a set.",
+                detailedDescription: " 5 pieces outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester, cotton, blend",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-5-2",
+                imageUrl: "images/2  1-5-2.jpg"
+            },
+            {
+                id: 38,
+                name: "Tops Bundle",
+                category: "new-clothing",
+                price: 300,
+                stock: 12,
+                condition: "new",
+                description: "High value bundle: cost-effective option for resellers; can split or sell as a set.",
+                detailedDescription: " 5 pieces outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester, cotton, blend",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-5-3",
+                imageUrl: "images/2  1-5-3.jpg"
+            },
+            {
+                id: 39,
+                name: "Tops Bundle",
+                category: "new-clothing",
+                price: 300,
+                stock: 12,
+                condition: "new",
+                description: "High value bundle: cost-effective option for resellers; can split or sell as a set.",
+                detailedDescription: " 5 pieces outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester, cotton, blend",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-5-4",
+                imageUrl: "images/2  1-5-4.jpg"
+            },
+            {
+                id: 40,
+                name: "Tops Bundle",
+                category: "used-clothing",
+                price: 125,
+                stock: 12,
+                condition: "used",
+                description: "High value bundle: cost-effective option for resellers; can split or sell as a set.",
+                detailedDescription: " 5 pieces outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester, cotton, blend",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  1-5-5",
+                imageUrl: "images/2  1-5-5.jpg"
+            },
+            {
+                id: 41,
+                name: "Tops Bundle",
+                category: "used-clothing",
+                price: 150,
+                stock: 12,
+                condition: "used",
+                description: "High value bundle: cost-effective option for resellers; can split or sell as a set.",
+                detailedDescription: " 5 pieces outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "Polyester, cotton, blend",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  2-1-1",
+                imageUrl: "images/2  2-1-1.jpg"
+            },
+            {
+                id: 42,
+                name: "Women's Dress Set",
+                category: "used-clothing",
+                price: 200,
+                stock: 12,
+                condition: "used",
+                description: "Good dress for any occasions. Made from high-quality fabric.",
+                detailedDescription: " 2-piece outfit, soft, stretchy & breathable, – perfect for hot Ghana weather at a affordable price, versatile for work, weekends, or hangouts. Contact us for shipping cost and time estimate.",
+                specs: {
+                   "Material": "100% Polyester",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  2-1-2",
+                imageUrl: "images/2  2-1-2.jpg"
+            },
+            {
+                id: 43,
+                name: "Women's Dress Set",
+                category: "new-clothing",
+                price: 259,
+                stock: 12,
+                condition: "new",
+                description: "Good dress for any occasions. Made from high-quality fabric.",
+                detailedDescription: " 2-piece outfit,  long-sleeve shirt dress, pointed collar, button placket, lower pleated hem, structured woven fabric, loose A-line silhouette, above-knee length. cropped knit vest, V-neck, vertical ribbed texture, button placket, ribbed hem, soft stretchy knit fabric, tailored fit. Free shipping within Accra and Tema.",
+                specs: {
+                   "Material": "100% Polyester",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  2-1-3",
+                imageUrl: "images/2  2-1-3.jpg"
+            },
+            {
+                id: 44,
+                name: "Women's Dress",
+                category: "new-clothing",
+                price: 229,
+                stock: 12,
+                condition: "new",
+                description: "Good dress for any occasions. Made from high-quality fabric.",
+                detailedDescription: " White mini dress with square neckline, sheer puff long sleeves with ruffled cuffs, embossed floral texture, side lace-up drawstring waist, A-line silhouette, structured woven fabric. Free shipping within Accra and Tema.",
+                specs: {
+                   "Material": "100% Polyester",
+                    "Size": "S, M, L",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  2-1-4",
+                imageUrl: "images/2  2-1-4.jpg"
+            },
+            {
+                id: 45,
+                name: "Women's Dress",
+                category: "new-clothing",
+                price: 249,
+                stock: 12,
+                condition: "new",
+                description: "Good dress for any occasions. Made from high-quality fabric.",
+                detailedDescription: " Off-white mini dress, large pleated collar with black trim, black ribbon tie at neck, short sleeves with black cuffs, embossed circular texture, dual patch pockets with pearl trim, loose shift silhouette. Free shipping within Accra and Tema.",
+                specs: {
+                   "Material": "100% Polyester",
+                    "Size": "S, M, L, XL, XXL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  2-1-5",
+                imageUrl: "images/2  2-1-5.jpg"
+            },
+            {
+                id: 46,
+                name: "Women's Dress",
+                category: "used-clothing",
+                price: 129,
+                stock: 12,
+                condition: "used",
+                description: "Good dress for any occasions. Made from high-quality fabric.",
+                detailedDescription: " Soft cotton-blend fabric is lightweight and airy, keeping you cool in hot weather, ideal for tropical climates like Ghana. Contact us for shipping cost and time estimate",
+                specs: {
+                   "Material": "98% Cotton and 2% Polyester",
+                    "Size": "S, M, L, XL, XXL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  2-2-1",
+                imageUrl: "images/2  2-2-1.jpg"
+            },
+            {
+                id: 47,
+                name: "Women's T-Shirt Dress",
+                category: "new-clothing",
+                price: 229,
+                stock: 12,
+                condition: "new",
+                description: "Good set for any occasions. Made from high-quality fabric.",
+                detailedDescription: " Soft cotton-blend fabric is lightweight and airy, keeping you cool in hot weather, ideal for tropical climates like Ghana. Free shipping within Accra and Tema.",
+                specs: {
+                   "Material": "95% Cotton and 5% Spandex",
+                    "Size": "S, M, L, XL, XXL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  2-2-2",
+                imageUrl: "images/2  2-2-2.jpg"
+            },
+            {
+                id: 48,
+                name: "Women's Dress Set",
+                category: "new-clothing",
+                price: 279,
+                stock: 12,
+                condition: "new",
+                description: "Good set for any occasions. Made from high-quality fabric.",
+                detailedDescription: " 2-piece-outfit, the fabric is lightweight and airy, keeping you cool in hot weather, ideal for tropical climates like Ghana. Free shipping within Accra and Tema.",
+                specs: {
+                   "Material": "95% Polyester and 5% Spandex",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  2-2-3",
+                imageUrl: "images/2  2-2-3.jpg"
+            },
+            {
+                id: 49,
+                name: "Office Blazer Set",
+                category: "new-clothing",
+                price: 500,
+                stock: 12,
+                condition: "new",
+                description: "Good set for formal occasions. Made from very high-quality fabric.",
+                detailedDescription: " 2-piece-outfit, versatile mix & match: perfect for commuting, meetings, and formal events; can be worn as a set or separately, Professional & stylish: blazer adds structure, shirt keeps it fresh, ideal for tropical climates like Ghanaideal for tropical climates in Ghana. Free shipping within Accra and Tema.",
+                specs: {
+                   "Material": "95% Polyester and 5% Spandex",
+                    "Size": "S, M, L, XL",
+                    "Care": "Machine wash",
+                    "Origin": "Made in China", 
+                    "Weight": "1.5kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  2-2-4",
+                imageUrl: "images/2  2-2-4.jpg"
+            },
+            {
+                id: 50,
+                name: "Pink Round Tabletop Vanity Mirror",
+                category: "Home & Living",
+                condition: "used",
+                price: 25,
+                stock: 12,
+                description: "Cute and practical desktop vanity mirror with a storage tray, ideal for daily makeup and skincare routines.",
+                detailedDescription: " Single-sided clear HD glass mirror with a soft pink round frame and integrated tray base for organizing cosmetics, jewelry, and small accessories. Stable vertical stand prevents tipping, while the shatter-resistant plastic frame ensures safe use. Compact and lightweight, perfect for home vanities, dorm rooms, and travel. Contact us for shipping cost and time estimate and product picture.",
+                specs: {
+                   "Material": "Frame/Stand/Base: PP Plastic; Mirror: High-Definition Float Glass",
+                    "Size": "Total Height: 28cm",
+                    "Care": "Wipe clean with a soft cloth, avoid harsh chemicals",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  A1.jpg"
+            },
+            {
+                id: 51,
+                name: "Warm Mist Facial Steamer",
+                category: "Home & Living",
+                condition: "used",
+                price: 100,
+                stock: 12,
+                description: "Warm mist penetrates deep into the skin, opening pores to remove dirt and impurities, while locking in moisture for a plump, glowing complexion.",
+                detailedDescription: " Warm mist moisturizing, deep cleansing, pore opening, ideal for facial care, makeup preparation, and relieving dry skin in tropical climates like Ghana. Single power switch for easy use; heat-resistant materials prevent scalding, making it safe for home use. Small footprint and lightweight, perfect for vanities, dorm rooms, and travel.  Contact us for shipping cost and time estimate and product picture.",
+                specs: {
+                   "Material": "Body/Base: PP plastic and ABS plastic + transparent heat-resistant coating",
+                   "Size": "Height: ~22cm",
+                    "Care": "Wipe clean",
+                    "Origin": "Made in China", 
+                    "Weight": "1.5kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  A2.jpg"
+            },
+            {
+                id: 52,
+                name: "Astronaut-Shaped Sunset Red Plug-In Projection Lamp",
+                category: "Home & Living",
+                condition: "new",
+                price: 150,
+                stock: 12,
+                description: "Projects a warm sunset red halo, ideal for ambient lighting in bedrooms, living rooms, and photo studios. The adjustable head allows for versatile projection angles, creating a cozy, romantic atmosphere at home.",
+                detailedDescription: " Astronaut-shaped sunset projection lamp, plug-in power supply, large optical lens for clear light projection, adjustable head angle, compact and portable design, touchless switch for easy operation.  Contact us for shipping cost and time estimate and product picture.",
+                specs: {
+                   "Material": "ABS plastic and High-transmittance optical glass",
+                   "Size": "Height: ~12cm",
+                    "Care": "Wipe clean",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  A3.png"
+            },
+            {
+                id: 53,
+                name: "Four-Leaf Clover Bracelet",
+                category: "Used Jewelry",
+                condition: "used",
+                price: 59,
+                stock: 12,
+                description: "Pairs perfectly with casual outfits, formal attire, and other jewelry, making it a must-have accessory for any wardrobe.",
+                detailedDescription: "Versatile accessory for daily wear, commuting, and special occasions. The four-leaf clover symbolizes luck and good fortune, making it a thoughtful gift. Contact us for shipping cost and time estimate and product picture.",
+                specs: {
+                   "Material": "Titanium steel",
+                   "Size": "Length: ~16cm + 5cm extension chain",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  B1.jpg"
+            },
+            {
+                id: 54,
+                name: "Ginkgo Leaf Pearl Rose Gold Necklace",
+                category: "Used Jewelry",
+                condition: "used",
+                price: 59,
+                stock: 12,
+                description: "Pairs beautifully with blouses, dresses, and casual tops, making it a versatile addition to any jewelry collection.",
+                detailedDescription: "Elegant accessory for daily wear, commuting, and special occasions. The ginkgo leaf symbolizes longevity and peace, while the pearl represents purity and elegance, making it a thoughtful gift for loved ones. Contact us for shipping cost and time estimate and product picture.",
+                specs: {
+                   "Material": "Titanium steel",
+                   "Size": "Length: ~40cm",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  B2.jpg"
+            },
+            {
+                id: 55,
+                name: " Pearl Necklace",
+                category: "Used Jewelry",
+                condition: "used",
+                price: 129,
+                stock: 12,
+                description: "Combines natural freshwater pearls with traditional Chinese motifs, exuding a unique cultural charm and elegance.",
+                detailedDescription: "Freshwater pearl necklace with a circular pendant featuring a traditional Chinese motif, paired with a lobster clasp and adjustable extension chain. Comes with a branded gift box and a decorative yellow tassel (gift packaging). Contact us for shipping cost and time estimate and product picture.",
+                specs: {
+                   "Material": "Pearls",
+                   "Size": "Chain length: ~42cm + 5cm extension chain",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  B3.jpg"
+            },
+            {
+                id: 56,
+                name: " Pink Over-Ear Gaming Headset with Microphone",
+                category: "Used Electronics",
+                condition: "used",
+                price: 49,
+                stock: 12,
+                description: "Works with PCs, laptops, gaming consoles, and mobile devices via 3.5mm jacks.",
+                detailedDescription: "Pink over-ear gaming headset with a flexible boom microphone, padded gray ear cushions for comfort, and a 3.5mm audio/mic dual plug cable. Features an inline control module for volume adjustment and muting. Contact us for shipping cost and time estimate and product picture.",
+                specs: {
+                   "Material": "Pearls",
+                   "Size": "Chain length: ~42cm + 5cm extension chain",
+                    "Origin": "Made in China", 
+                    "Weight": "1kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "2  C1.jpg"
+            },
+            {
+                id: 57,
+                name: " sample curtain customization",
+                category: "Home & Living",
+                condition: "new",
+                price: 0.1,
+                stock: 999,
+                description: "professional customization.",
+                detailedDescription: "professional customization, contact us for more samples picture, order process and quotation, shipping cost and time estimate.",
+                specs: {
+                   "Material": "High-Quality Fabric",
+                   "Size": "customization",
+                    "Origin": "Made in China", 
+                    "Weight": "999kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "#D1.jpg"
+            },
+            {
+                id: 58,
+                name: " sample curtain customization",
+                category: "Home & Living",
+                condition: "new",
+                price: 0.1,
+                stock: 999,
+                description: "professional customization.",
+                detailedDescription: "professional customization, contact us for more samples picture, order process and quotation, shipping cost and time estimate.",
+                specs: {
+                   "Material": "High-Quality Fabric",
+                   "Size": "customization",
+                    "Origin": "Made in China", 
+                    "Weight": "999kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "#D2.jpg"
+            },
+            {
+                id: 59,
+                name: " sample curtain customization",
+                category: "Home & Living",
+                condition: "new",
+                price: 0.1,
+                stock: 999,
+                description: "professional customization.",
+                detailedDescription: "professional customization, contact us for more samples picture, order process and quotation, shipping cost and time estimate.",
+                specs: {
+                   "Material": "High-Quality Fabric",
+                   "Size": "customization",
+                    "Origin": "Made in China", 
+                    "Weight": "999kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "#D3.jpg"
+            },
+            {
+                id: 60,
+                name: " sample curtain customization",
+                category: "Home & Living",
+                condition: "new",
+                price: 0.1,
+                stock: 999,
+                description: "professional customization.",
+                detailedDescription: "professional customization, contact us for more samples picture, order process and quotation, shipping cost and time estimate.",
+                specs: {
+                   "Material": "High-Quality Fabric",
+                   "Size": "customization",
+                    "Origin": "Made in China", 
+                    "Weight": "999kg"
+                },
+                imageColor: "#DAA520",
+                imageText: "#D4.jpg"
+            },
         ];
         
         // 更新购物车数量
@@ -2827,6 +3523,7 @@
                                         <h5>Selected Topics:</h5>
                                         <div class="selected-topics-list" id="selectedTopicsList"></div>
                                     </div>
+                                    <div class="select-hint">Click the header above to expand/collapse the topic list</div>
                                 </div>
                                 
                                 <div class="form-group">
@@ -2834,7 +3531,6 @@
                                     <textarea id="contactMessage" class="form-control" placeholder="Your inquiry..." required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send Inquiry</button>
-                                <div id="formMessage" style="margin-top: 1rem; display: none;"></div>
                             </form>
                         </div>
                         
@@ -3386,11 +4082,10 @@
             loadPage(page, params);
         }
         
-        // 提交询价表单（使用EmailJS）
+        // 提交询价表单
         function submitInquiry(event) {
             event.preventDefault();
             
-            // 获取表单数据
             const name = document.getElementById('contactName').value;
             const phone = document.getElementById('contactPhone').value;
             const email = document.getElementById('contactEmail').value || 'Not provided';
@@ -3398,86 +4093,31 @@
             
             // 获取选中的主题
             const checkboxes = document.querySelectorAll('input[name="subject"]:checked');
-            const selectedSubjects = Array.from(checkboxes).map(cb => {
-                const label = cb.nextElementSibling.textContent;
-                return label;
-            }).join(', ');
+            const selectedSubjects = Array.from(checkboxes).map(cb => cb.value);
             
             if (selectedSubjects.length === 0) {
                 alert('Please select at least one subject for your inquiry.');
                 return false;
             }
             
-            // 显示加载状态
-            const submitBtn = event.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
+            console.log('Inquiry submitted:', { name, phone, email, subjects: selectedSubjects, message });
             
-            // 获取消息显示区域
-            const formMessage = document.getElementById('formMessage');
+            alert('Thank you for your inquiry! We will contact you within 24 hours.');
             
-            // 使用EmailJS发送邮件（使用您提供的Service ID和Template ID）
-            emailjs.send(
-                "service_ncim1uo",  // 您的Service ID
-                "template_21n07rh",  // 您的Template ID
-                {
-                    to_email: "shiyumarry@gmail.com",
-                    from_name: name,
-                    from_phone: phone,
-                    from_email: email,
-                    subjects: selectedSubjects,
-                    message: message,
-                    date: new Date().toLocaleString(),
-                    store_name: "Chaoliuer Store"
-                }
-            )
-            .then(function(response) {
-                console.log('Email sent successfully:', response.status, response.text);
-                
-                // 显示成功消息
-                formMessage.innerHTML = '<div style="color: var(--green); padding: 10px; background-color: #f0fff0; border-radius: 4px;">✓ Thank you! Your inquiry has been sent successfully. We will contact you within 24 hours.</div>';
-                formMessage.style.display = 'block';
-                
-                // 重置表单
-                event.target.reset();
-                
-                // 重置选中的主题显示
-                const selectedTopicsContainer = document.getElementById('selectedTopicsContainer');
-                const selectedTopicsList = document.getElementById('selectedTopicsList');
-                if (selectedTopicsContainer && selectedTopicsList) {
-                    selectedTopicsContainer.style.display = 'none';
-                    selectedTopicsList.innerHTML = '';
-                }
-                
-                // 取消选中所有复选框
-                document.querySelectorAll('input[name="subject"]').forEach(cb => {
-                    cb.checked = false;
-                });
-                
-                // 重置按钮状态
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // 5秒后隐藏成功消息
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }, function(error) {
-                console.error('Email send failed:', error);
-                
-                // 显示错误消息
-                formMessage.innerHTML = `<div style="color: var(--red); padding: 10px; background-color: #fff0f0; border-radius: 4px;">✗ Sorry, there was an error sending your inquiry. Please contact us directly at +233 20 941 2194.</div>`;
-                formMessage.style.display = 'block';
-                
-                // 重置按钮状态
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // 5秒后隐藏错误消息
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
+            // 重置表单
+            event.target.reset();
+            
+            // 重置选中的主题显示
+            const selectedTopicsContainer = document.getElementById('selectedTopicsContainer');
+            const selectedTopicsList = document.getElementById('selectedTopicsList');
+            if (selectedTopicsContainer && selectedTopicsList) {
+                selectedTopicsContainer.style.display = 'none';
+                selectedTopicsList.innerHTML = '';
+            }
+            
+            // 取消选中所有复选框
+            document.querySelectorAll('input[name="subject"]').forEach(cb => {
+                cb.checked = false;
             });
             
             return false;
